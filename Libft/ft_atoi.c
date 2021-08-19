@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/18 12:53:11 by llima-ce          #+#    #+#             */
+/*   Updated: 2021/08/18 12:54:20 by llima-ce         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_atoi(const char *dest)
+int	ft_atoi(const char*dest)
 {
 	int	sign;
 	int	num;
@@ -19,7 +30,7 @@ int ft_atoi(const char *dest)
 	while (dest[a] <= '9' && dest[a] >= '0')
 	{
 		num *= 10;
-		num = num + dest[a] - 48; 
+		num = num + dest[a] - 48;
 		a++;
 	}
 	return (num * sign);

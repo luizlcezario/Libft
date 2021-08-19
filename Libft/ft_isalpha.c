@@ -6,13 +6,13 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 22:53:59 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/17 10:40:33 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/18 12:55:19 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int arg)
+int	ft_isalpha(int arg)
 {
-	if((arg <= 'z' && arg >= 'a') ||(arg <= 'Z' && arg >= 'A'))
-		return(1024);
-	return(0);
+	if ((arg <= 'z' && arg >= 'a') || (arg <= 'Z' && arg >= 'A'))
+		return (1024);
+	return (0);
 }

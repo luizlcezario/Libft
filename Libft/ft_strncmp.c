@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 18:40:32 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/17 20:24:03 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/18 13:06:05 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		s2++;
 		a++;
 	}
-	return (((size_t)*s1) - ((size_t)*s2));
+	return ((*(unsigned char *)s1) - (*(unsigned char *)s2));
 }

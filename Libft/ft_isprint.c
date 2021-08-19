@@ -6,13 +6,13 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:00 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/16 23:03:10 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/18 12:55:51 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int arg)
 {
-	if((arg >= ' ' && arg <= 127))
-		return(16384);
-	return(0);
+	if ((arg >= ' ' && arg <= 127))
+		return (16384);
+	return (0);
 }

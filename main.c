@@ -7,6 +7,16 @@
 // void bzero(void *s, size_t n);
 // size_t strlcat(char *restrict dst,const char * restrict src, size_t dstsize);
 // gcc main.c -L. -lft
+static void		ft_print_result(int n)
+{
+	if (n > 0)
+		write(1, "1", 1);
+	else if (n < 0)
+		write(1, "-1", 2);
+	else
+		write(1, "0", 1);
+}
+
 int	main(int argc,char **argv)
 {
 	// ***************MEMSET_C***************
@@ -53,34 +63,20 @@ int	main(int argc,char **argv)
 	// printf("erros: %d \n", r);
 	// }
 
-	// *******************AULA*********************
 	if(argc > 0 && *argv[0] != 0)
 	{
-	int r = 0;
-	int size = 0;
-	for(size = 0; size <= 200; size++)
-	{
-		if(isdigit(size) != ft_isdigit(size))
-		{
-			printf("Value Mc: %d Value Ft: %d size: %d\n",isdigit(size),ft_isdigit(size), size);
-		}
-		r++;
-	}
-	
-	printf("erros: %d \n", r);
-	}
-	// if(argc > 0 && *argv[0] != 0)
-	// {
-	// 	char first[] = "a is is ";
-	// 	char last[] = "a potenti2lly long string asd";
-	// 	// int r = 0;
-	// 	int size = 30;
-	// 	char buffer[size];
+		// "a is is ";
+		char last[] = "***189543***";
+		char first[] = "asdasdasdasd";
+		char *p;
+		p = ft_strjoin(last,first);
+		printf("MyFt: %s \n",p);
+		printf("MyFt: %s \n",last);
+		// printf("frase: %s \n",last);
+		// printf("Orig: %s \n",r);
+		// strcpy(buffer , last);
+		// printf("%d \n",ft_strncmp(r, last , 5));
 		
-	// 	strcpy(buffer , last);
-	// 	printf("%d \n",strncmp( first, last , 5));
-	// 	strcpy(buffer , last);
-	// 	printf("%d \n",ft_strncmp(first, last , 5));
-	// }
+	}
 	return(0);
 }
