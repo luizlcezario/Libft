@@ -66,15 +66,22 @@ int	main(int argc,char **argv)
 	if(argc > 0 && *argv[0] != 0)
 	{
 		// "a is is ";
-		char last[] = "***189543***";
-		char first[] = "asdasdasdasd";
+		char last[] = "abc";
+		char first[] = "cbaaba653213acabcb";
+		char sub[] = "substr function Implemantation";
+		char s[] = {0, 1, 2 ,3 ,4 ,5};
 		char *p;
-		p = ft_strjoin(last,first);
-		printf("MyFt: %s \n",p);
-		printf("MyFt: %s \n",last);
+		printf("%d \n",ft_memchr(s, 2 + 256, 3) == s + 2 );
+		p = ft_strtrim(first, last);
+		printf("Trim: %s \n",p);
+		p = ft_substr(sub, 7, 12);
+		printf("substr: %s \n",p);
+		char a[] = "tripouille";
+		printf("%d\n",ft_strchr(a, 't' + 256) == a);
+		// printf("MyFt: %s \n",last);
 		// printf("frase: %s \n",last);
 		// printf("Orig: %s \n",r);
-		// strcpy(buffer , last);
+		// strcpy(buffer , last);as
 		// printf("%d \n",ft_strncmp(r, last , 5));
 		
 	}

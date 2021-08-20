@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/18 23:22:54 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/19 17:54:02 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 # include <stdio.h>
 
 int		ft_isalpha(int arg);
+//		Copy the SRC to DEST, it copies only until the N byte and then complete with null byte
 void	*ft_memcpy(void *dest,const void *src, size_t n);
+//		Copy the SRC to DEST, it copies only until the N byte and then complete with null byte
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *ptr, int x, size_t n);
 int		ft_atoi(const char *dest);
@@ -36,7 +38,7 @@ int		ft_tolower(int c);
 char	*ft_strchr(const char *str, int n);
 char	*ft_strrchr(const char *str, int n);
 int		ft_strncmp(const char *s1,const char *s2,size_t n);
-//		Function locates the first C in the STR, it searches only until the N byte 
+//		Function locates the first C in the STR, it searches only until the N byte
 void	*ft_memchr(const void *str, int c, size_t n);
 //		Function compares the STR to PTR if the first diference between the STR and PTR, if the STR is greater then return a number > 0 if STR is greater the return a number < 0 if the compare ends with no difference then return 0,this funcitons compare the two pointer until the N Byte.
 int		ft_memcmp(const void *str, const void *ptr, size_t n);
@@ -50,7 +52,7 @@ char	*ft_strdup(const char *str);
 char	*ft_substr(char const *s, unsigned int start,size_t len);
 //		Copy the S1 concat with S2.
 char	*ft_strjoin(char const *s1, char const *s2);
-//		Create a new pointer that points to the S1 - all the ocurrencies of the SET.
+//		Create a new pointer that points to the S1 - all the ocurrencies of the caractes of SET in the start and in the end of the S1.
 char	*ft_strtrim(char const *s1, char const *set);
 
 #endif
