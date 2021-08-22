@@ -31,35 +31,32 @@ SRCS =  ft_isalpha.c	\
 		ft_strdup.c		\
 		ft_substr.c		\
 		ft_strjoin.c	\
-		ft_strtrim.c
+		ft_strtrim.c	\
+		ft_split.c
 
 OBJS = ${SRCS:%.c=%.o}
 
 all: $(NAME)
+	make clean
 
 $(NAME): $(OBJS)
 	ar rcs ${NAME} ${OBJS}
-	ranlib ${NAME}
 
-$(OBJS):
+$(OBJS): copy $(SRCS)
 	${CC} -I . -c ${CFLAGS} ${SRCS}
 
 clean:
 		rm -f  ${OBJS}
-		# rm -f ${SRCS} 
-		# remove the .c files from the main folder
+		rm -f ${SRCS} 
 
 fclean: clean
 		rm -f ${OBJS} ${NAME}
+		# remove the .c files from the main folder
 
 re: fclean all 
 
 # Copy the .c archives in the folders to the main folder 
 copy:
-	cp -f */*.c .
+	cp -f Libft*/ft_*.c .
 
 # compile all the .c, in all pastes of the main folder, create the libft.a and compile the main.c with the libft
-run: copy re
-		make clean
-		rm -f ${SRCS}
-		${CC} ${GCC_F} main.c -L . -lft
