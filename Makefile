@@ -37,16 +37,16 @@ SRCS =  ft_isalpha.c	\
 OBJS = ${SRCS:%.c=%.o}
 
 all: $(NAME)
-	make clean
+	make clean 
 
 $(NAME): $(OBJS)
-	ar rcs ${NAME} ${OBJS}
+	ar rcs $(NAME) $(OBJS)
 
 $(OBJS): copy $(SRCS)
 	${CC} -I . -c ${CFLAGS} ${SRCS}
 
 clean:
-		rm -f  ${OBJS}
+		rm -f ${OBJS}
 		rm -f ${SRCS} 
 
 fclean: clean

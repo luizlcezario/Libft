@@ -42,33 +42,33 @@
 This is a Library of function that's we will use in the others projects of the 42 school.
 
 ## :clipboard: List of Fucntions
-* - ft_isalpha - OK
-* - ft_isdigit - OK
-* - ft_isalnum - OK
-* - ft_isascii - OK
-* - ft_isprint - OK
-* - ft_strlen - OK
-* - ft_toupper - OK
-* - ft_tolower - OK
-* - ft_memset - OK
-* - ft_memcpy - OK
-* - ft_memmove - OK
-* - ft_memchr - OK
-* - ft_memcmp - OK
-* - ft_bzero - OK
-* - ft_strlcat - OK 
-* - ft_strchr - OK
-* - ft_strrchr - KO
-* - ft_strlcpy - KO
-* - ft_strncmp - KO
-* - ft_strnstr - KO
-* - ft_atoi - KO
-* - ft_calloc - OK
-* - ft_strdup - Ko
-* - ft_substr - KO
-* - ft_strjoin - KO
-* - ft_strtrim - KO
-* - ft_split - KO
+* ft_isalpha - <b style="color:green">OK</b>
+* ft_isdigit - <b style="color:green">OK</b>
+* ft_isalnum - <b style="color:green">OK</b>
+* ft_isascii - <b style="color:green">OK</b>
+* ft_isprint - <b style="color:green">OK</b>
+* ft_strlen - <b style="color:green">OK</b>
+* ft_toupper - <b style="color:green">OK</b>
+* ft_tolower - <b style="color:green">OK</b>
+* ft_memset - <b style="color:green">OK</b>
+* ft_memcpy - <b style="color:green">OK</b>
+* ft_memmove - <b style="color:green">OK</b>
+* ft_memchr - <b style="color:green">OK</b>
+* ft_memcmp - <b style="color:green">OK</b>
+* ft_bzero - <b style="color:green">OK</b>
+* ft_strlcat - <b style="color:green">OK</b> 
+* ft_strchr - <b style="color:green">OK</b>
+* ft_strrchr - <b style="color:red">KO</b>
+* ft_strlcpy - <b style="color:green">OK</b>
+* ft_strncmp - <b style="color:red">KO</b>
+* ft_strnstr - <b style="color:red">KO</b>
+* ft_atoi - <b style="color:red">KO</b>
+* ft_calloc - <b style="color:green">OK</b>
+* ft_strdup - <b style="color:red">KO</b>
+* ft_substr - <b style="color:red">KO</b>
+* ft_strjoin - <b style="color:red">KO</b>
+* ft_strtrim - <b style="color:red">KO</b>
+* ft_split - <b style="color:red">KO</b>
 
 # :computer: Technologies
 
@@ -113,4 +113,4 @@ $ gcc main.c -L . -lft
 Please feel free **to create a new issue** with its title and description on the issues page of the[Libft](https://github.com/luizlcezario/Libft/issues) Repository. If you have already found the solution to the problem, **I would love to review your pull request**!
 
 
-Dê uma ⭐️ se esse projeto te ajudou!
+Give ⭐️ if you like this project this will help me!

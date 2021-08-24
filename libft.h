@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/22 20:10:20 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/23 20:59:17 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string.h>
 # include <stdio.h>
 
-//		if ARG is a alphabetic value returns 1028.
+//		if ARG is a alphabetic value returns 1024.
 int		ft_isalpha(int arg);
 //		if ARG is a alphanumeric value returns 8.
 int		ft_isalnum(int arg);
