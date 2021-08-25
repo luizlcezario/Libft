@@ -6,33 +6,34 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 13:02:04 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/23 21:47:55 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/23 23:05:42 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static size_t	ft_strnlen(const char *s, size_t n);
+
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	a;
-	int		teste;
+	size_t	srclen;
+	size_t	destlen;
 
-	a = 0;
-	while (*dest != 0 && a < size)
-		a++ && dest++;
-	teste = a < size;
-	while (*src != 0 && a < size)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-		++a;
-	}
-	if (a == size)
-		dest--;
-	if (teste)
-		*dest = 0;
-	while (*src != 0)
-		src++ && a++;
-	return (a);
+	srclen = ft_strlen(src);
+	destlen = ft_strnlen(dest, size);
+	if (destlen == size)
+		return (destlen + srclen);
+	ft_strlcpy(&dest[destlen], src, size - destlen);
+	return(destlen + srclen);
+}
+
+static size_t	ft_strnlen(const char *s, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while(s[i] && i < n)
+		i++;
+	return(i);
+
 }

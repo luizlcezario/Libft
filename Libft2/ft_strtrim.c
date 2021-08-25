@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 21:00:36 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/19 15:00:40 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/24 14:57:50 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@ static size_t	get_End(char const *s1, char const *set, size_t start_find);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t str_len;
-	size_t start;
-	size_t end;
-	char *res;
+	size_t	str_len;
+	size_t	start;
+	size_t	end;
+	char	*res;
 
 	str_len = ft_strlen(s1);
 	start = get_Start(s1, set, 0);
 	end = get_End(s1, set, str_len);
-	res = ft_substr(s1, start , str_len - end);
+	// printf("%zu", end);
+	// printf("%zu", start);
+
+	res = ft_substr(s1, start, str_len - end - start);
 	return(res);
 }
 

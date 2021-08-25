@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 19:48:50 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/19 00:11:03 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/24 14:22:32 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static char	*ft_strcpy(char *res, char *str)
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	str_len;
-	char 	*res;
+	char	*res;
 	
-	str_len = ft_strlen(s1) + ft_strlen(s2);
+	str_len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	res = ft_calloc(str_len, sizeof(char));
 	if(res == NULL)
 		return(NULL);

@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 18:03:27 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/20 02:00:26 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/24 00:28:03 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 char	*ft_strrchr(const char *str, int n)
 { 
-	int	a;
+	size_t	a;
+	char	ch;
 
 	a = ft_strlen(str) + 1;
-	while (a - 1 != 0)
+	ch = (char)n;
+	while (a--)
 	{
-		if (*(str + a) == (char)n)
+		if (*(str + a) == ch)
 		{
 			return ((char *)(str + a));
 		}
-		a--;
 	}
+	if(*(str + a) == ch)
+		return ((char *)(str + a));
 	return (NULL);
 }

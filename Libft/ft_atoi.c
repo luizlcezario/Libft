@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 12:53:11 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/18 12:54:20 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/24 13:19:38 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	ft_atoi(const char*dest)
 	int	a;
 
 	a = 0;
-	while (dest[a] == 32)
+	if(*dest == 0)
+		return (0);
+	while (dest[a] == ' ' || (dest[a] >= 9 && dest[a] <= 13))
 		a++;
 	sign = 1;
 	if (dest[a] == '+' || dest[a] == '-')
