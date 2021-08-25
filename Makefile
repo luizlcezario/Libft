@@ -61,4 +61,4 @@ copy:
 
 # compile all the .c, in all pastes of the main folder, create the libft.a and compile the main.c with the libft
 run: all 
-	gcc main.c -L . -lft
+	${CC} main.c -L . -lft

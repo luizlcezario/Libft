@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 16:09:09 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/24 14:48:48 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/25 09:52:10 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = ft_strnlen(&s[start], len);
 	else
 		return(ft_strdup(""));
-	res = (char *)malloc(sizeof(char) * len + 1);
+	res = (char *)ft_calloc(len + 1,sizeof(char));
 	if (!res)
 		return (NULL);
 	ft_strlcpy(res, &s[start], len + 1);
