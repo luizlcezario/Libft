@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 11:18:02 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/18 13:10:45 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/25 18:17:48 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_memcmp(const void *str, const void *ptr, size_t n)
 
 	str1 = (unsigned char *)str;
 	ptr1 = (unsigned char *)ptr;
-	a = -1;
+	a = 0;
 	while (*(str1 + a) == *(ptr1 + a) && ++a < n)
 		;
 	if (a == n)

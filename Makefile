@@ -1,4 +1,4 @@
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re copy
 
 CC = clang
 
@@ -42,23 +42,30 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-$(OBJS): copy $(SRCS)
+$(OBJS): $(SRCS)
 	${CC} -I . -c ${CFLAGS} ${SRCS}
 
 clean:
 		rm -f ${OBJS}
-		rm -f ${SRCS} 
+		
+		# rm -f ${SRCS} 
 
 fclean: clean
-		rm -f ${OBJS} ${NAME}
+		rm -f ${NAME}
 		# remove the .c files from the main folder
 
-re: fclean all 
-
+re: fclean copy all
 # Copy the .c archives in the folders to the main folder 
 copy:
+	rm -f ${SRCS}
 	cp -f Libft*/ft_*.c .
 
 # compile all the .c, in all pastes of the main folder, create the libft.a and compile the main.c with the libft
-run: all 
-	${CC} main.c -L . -lft
+run: re 
+	${CC} main.c -L . -lft && ./a.out
+
+teste2: re
+	cd teste2 && bash grademe.sh
+
+make teste1: re
+	cd teste && make split
