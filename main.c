@@ -1,9 +1,11 @@
 #include "libft.h"
 
-int main()
+int main(int argc, char **argv)
 {
+
 	int a = 0;
 	char **s = NULL;
+	int arg;
 	// char str[] ="Luiz s";
 	// char str2[] = "  Luiz  42  ";
 
@@ -34,42 +36,65 @@ int main()
 	printf("\n");
 
 
-	char *r[] ={
-"lorem ",
-"psum dolor s",
-"t amet, consectetur ad",
-"p",
-"sc",
-"ng el",
-"t. Sed non r",
-"sus. Suspend",
-"sse lectus tortor, d",
-"gn",
-"ss",
-"m s",
-"t amet, ad",
-"p",
-"sc",
-"ng nec, ultr",
-"c",
-"es sed, dolor. Cras elementum ultr",
-"c",
-"es d",
-"am. Maecenas l",
-"gula massa, var",
-"us a, semper congue, eu",
-"smod non, m",
-".",
-};
-
-	s = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
-	printf("2-test:\n");
-	while(s[a] != 0)
+	if (argc == 1)
+		return (0);
+	if ((arg = atoi(argv[1])) == 1)
 	{
-		printf("%d-%s=%s|cmp=%d \n",a, s[a],r[a], s[a] == r[a]);
-		a++;
+		if(ft_split("          ", ' ') == NULL)
+			printf("OK");
+		else
+			printf("KO");
 	}
-	free(s);
+	else if (arg == 2)
+	{
+		char *r[] ={"lorem","ipsum","dolor","sit","amet,","consectetur","adipiscing","elit.","Sed","non","risus.","Suspendisse"};
+		s = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non makrisus. Suspendisse", ' ');
+		printf("2-test:\n");
+		while(s[a] != 0)
+		{
+			printf("%d-%s=%s|cmp=%d \n",a, s[a],r[a], s[a] == r[a]);
+			a++;
+		}
+		free(s);
+	}
+	else if (arg == 3)
+	{
+		char *r[] ={"lorem","ipsum","dolor","sit","amet,","consectetur","adipiscing","elit.","Sed","non","risus.","Suspendisse"};
+		s = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
+		printf("2-test:\n");
+		while(s[a] != 0)
+		{
+			printf("%d-%s=%s|cmp=%d \n",a, s[a],r[a], s[a] == r[a]);
+			a++;
+		}
+		free(s);
+	}
+	else if (arg == 4)
+	{
+		char *r[] ={"lorem ","psum dolor s","t amet, consectetur ad","p","sc","ng el","t. Sed non r","sus. Suspend","sse lectus tortor, d","gn","ss","m s","t amet, ad","p","sc","ng nec, ultr","c","es sed, dolor. Cras elementum ultr","c","es d","am. Maecenas l","gula massa, var","us a, semper congue, eu","smod non, m",".",};
+		s = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
+		printf("2-test:\n");
+		while(s[a] != 0)
+		{
+			printf("%d-%s=%s|cmp=%d \n",a, s[a],r[a], s[a] == r[a]);
+			a++;
+		}
+		free(s);
+	}
+	else if (arg == 5)
+	{
+		char *r[] ={"lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",""};
+		s = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z');
+		printf("2-test:\n");
+		while(s[a] != 0)
+		{
+			printf("%d-%s=%s|cmp=%d \n",a, s[a],r[a], s[a] == r[a]);
+			a++;
+		}
+		free(s);
+	}
+
+	
 
 	// printf("\n3-test: \n");
 	// s = ft_split("", 0);
