@@ -6,7 +6,7 @@
 #    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/08/27 14:40:46 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/08/27 15:40:30 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ fclean: clean
 	rm -f ${NAME}
 # 	remove the .c files from the main folder
 
-re: fclean all
+re: fclean copy all
 # 	Copy the .c archives in the folders to the main folder 
 copy:
 	rm -f ${SRCS}

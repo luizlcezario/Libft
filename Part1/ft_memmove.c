@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 10:25:10 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/27 13:20:37 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/27 15:01:58 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		while (n--)
 			d[n] = s[n];
-		return (dest);
 	}
-	ft_memcpy(d, s, n);
+	else
+	{
+		ft_memcpy(d, s, n);
+	}
 	return (dest);
 }
