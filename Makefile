@@ -6,7 +6,7 @@
 #    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/08/27 13:53:48 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/08/27 14:40:46 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,3 +89,6 @@ teste2: re
 
 teste1: re
 	cd teste && make m
+
+teste3:
+	cd ../libft-unit-test && make

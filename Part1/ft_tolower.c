@@ -6,13 +6,13 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 16:13:45 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/27 00:06:59 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:40:09 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if ((unsigned char)c <= 'Z' && (unsigned char)c >= 'A')
+	if (c <= 'Z' && c >= 'A')
 		c += 32;
 	return (c);
 }

@@ -6,13 +6,13 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 16:13:45 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/27 00:07:10 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:40:18 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	if ((unsigned char)c <= 'z' && (unsigned char)c >= 'a')
+	if (c <= 'z' && c >= 'a')
 		c -= 32;
 	return (c);
 }

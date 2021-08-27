@@ -6,9 +6,22 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/27 00:47:32 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:14:10 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+teste1 - fails
+putnbr_fd 
+strrchr
+
+teste2 - fails
+strrchr
+!memcpy
+!memmove
+!trim
+*/
+
 
 #ifndef LIBFT_H
 # define LIBFT_H
