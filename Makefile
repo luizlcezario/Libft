@@ -32,7 +32,15 @@ SRCS =  ft_isalpha.c	\
 		ft_substr.c		\
 		ft_strjoin.c	\
 		ft_strtrim.c	\
-		ft_split.c
+		ft_split.c		\
+		ft_lstnew.c		\
+		ft_itoa.c		\
+		ft_putchar_fd.c	\
+		ft_putstr_fd.c	\
+		ft_putnbr_fd.c	\
+		ft_strmapi.c	\
+		ft_striteri.c	\
+		ft_putendl_fd.c
 
 OBJS = ${SRCS:%.c=%.o}
 
@@ -62,10 +70,10 @@ copy:
 
 # compile all the .c, in all pastes of the main folder, create the libft.a and compile the main.c with the libft
 run: re 
-	${CC} main.c -L . -lft && ./a.out
+	${CC} ${CFLAGS} main.c -L . -lft && ./a.out
 
 teste2: re
 	cd teste2 && bash grademe.sh
 
-make teste1: re
-	cd teste && make split
+teste1: re
+	cd teste && make m

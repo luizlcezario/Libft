@@ -17,25 +17,6 @@ int main(int argc, char **argv)
 	// free(s);
 
 
-
-	printf("memcmp:\t\t");
-	if(ft_memcmp("", "test", 4) == memcmp("", "test", 4))
-		printf("5.OK ");
-	else
-	{
-		printf("5.KO ");
-		printf("{ %d = %d }",ft_memcmp("", "test", 4) ,memcmp("", "test", 4));
-	}
-	if(ft_memcmp("test", "", 4) == memcmp("test", "", 4))
-		printf("6.OK ");
-	else
-	{
-		printf("6.KO ");
-		printf("{ %d = %d }",ft_memcmp("test", "", 4) ,memcmp("test", "", 4));
-	}
-	printf("\n");
-
-
 	if (argc == 1)
 		return (0);
 	if ((arg = atoi(argv[1])) == 1)
@@ -93,7 +74,33 @@ int main(int argc, char **argv)
 		}
 		free(s);
 	}
-
+	else if(arg == 6)
+	{
+		printf("memcmp:\t\t");
+	if(ft_memcmp("", "test", 4) == memcmp("", "test", 4))
+		printf("5.OK ");
+	else
+	{
+		printf("5.KO ");
+		printf("{ %d = %d }",ft_memcmp("", "test", 4) ,memcmp("", "test", 4));
+	}
+	if(ft_memcmp("test", "", 4) == memcmp("test", "", 4))
+		printf("6.OK ");
+	else
+	{
+		printf("6.KO ");
+		printf("{ %d = %d }",ft_memcmp("test", "", 4) ,memcmp("test", "", 4));
+	}
+	printf("\n");
+	}
+	else if(arg == 8)
+	{
+		printf("itoa:\t\t");
+		printf("1.%s ",ft_itoa(-9));
+		printf("2.%s ",ft_itoa(-INT_MAX));
+		printf("3.%s ",ft_itoa(INT_MIN));
+		printf("\n");
+	}
 	
 
 	// printf("\n3-test: \n");

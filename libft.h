@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llima-ce <llima-ce@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/24 23:25:51 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/27 00:47:32 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 //		if ARG is a alphabetic value returns 1024.
 int		ft_isalpha(int arg);
 
@@ -118,5 +119,29 @@ char **ft_split(char const *s, char c);
 
 //		Create a new element for be linking tothe rest of the array 
 t_list	*ft_lstnew(void *content);
+
+//		Transform the int N in the a string with the value of N.
+char	*ft_itoa(int n);
+
+//		Create a new string with the function F() aplies to each char of S
+char	*ft_strmapi(char const *s, char (*f)(unsigned
+int, char));
+
+//		aplies the F() function to each char of the S
+void	ft_striteri(char *s, void (*f)(unsigned int,
+char*));
+
+//		Print char C with the descriptor FD
+void	ft_putchar_fd(char c, int fd);
+
+//		Print string S with the descriptor FD
+void	ft_putstr_fd(char *s, int fd);
+
+//		print a integer N with the descriptor FD
+void	ft_putnbr_fd(int n, int fd);
+
+//		print the S strig with the \n in the end
+void	ft_putendl_fd(char *s, int fd);
+
 
 #endif

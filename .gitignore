@@ -1,6 +1,9 @@
 /teste
-/LibfTest
+/Myteste
 /teste2
+
+./main.c
+
 # Prerequisites
 *.d
 
