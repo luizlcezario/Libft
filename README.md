@@ -180,7 +180,7 @@ This Project was made with:
 * [C](https://devdocs.io/)
 * [Makefile](https://www.gnu.org/software/make/manual/make.html)
 * [Shell](https://unixguide.readthedocs.io/en/latest/unixcheatsheet/)
-* [gcc]((https://terminaldeinformacao.com/2015/10/08/como-instalar-e-configurar-o-gcc-no-windows-mingw/))
+* [gcc](https://terminaldeinformacao.com/2015/10/08/como-instalar-e-configurar-o-gcc-no-windows-mingw/)
 
 # :construction_worker: How to Run
 ```bash
