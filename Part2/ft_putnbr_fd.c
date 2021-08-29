@@ -6,14 +6,14 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 21:43:23 by user42            #+#    #+#             */
-/*   Updated: 2021/08/27 15:57:45 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/29 17:33:17 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 
-static void loop(int nb,int fd)
+static void	loop(int nb,int fd)
 {
 	if(nb >= 10)
 	{
@@ -22,19 +22,19 @@ static void loop(int nb,int fd)
 	ft_putchar_fd((nb % 10) + '0', fd);
 }
 
-void ft_putnbr_fd(int nb,  int fd)
+void	ft_putnbr_fd(int nb,  int fd)
 {
 	if (nb == INT_MIN)
 	{
-		write(fd,"-", 1);
+		write(fd, "-", 1);
 		loop(nb / -10 , fd);
 		write(fd, "8", 1);
 	}
-	else if(nb < 0)
+	else if (nb < 0)
 	{
 		nb *= -1;
 		write(fd, "-", 1);
 	}
-	if(nb >= 0)
+	if (nb >= 0)
 		loop(nb, fd);
 }

@@ -6,13 +6,12 @@
 #    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/08/27 15:40:30 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/08/29 17:37:01 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all clean fclean re copy
 
-CC = clang
+CC = gcc
 
 NAME = libft.a
 
@@ -52,22 +51,42 @@ SRCS =  ft_isalpha.c	\
 		ft_strmapi.c	\
 		ft_striteri.c	\
 		ft_putnbr_fd.c	\
-		ft_lstnew.c		
+		ft_lstnew.c		\
+		ft_lstadd_front.c\
+		ft_lstsize.c	\
+		ft_lstlast.c	\
+		ft_lstadd_back.c\
+		ft_lstdelone.c	\
+		ft_lstclear.c	\
+		ft_lstiter.c	\
+		ft_lstiter.c	\
+		ft_lstmap.c
 
-OBJS = ${SRCS:%.c=%.o}
 
-all: $(NAME)
-	# make clean 
+SRCS_BONUS =ft_lstnew.c	\
+			ft_lstadd_front.c
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+OBJS = $(SRCS:.c=.o)
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+
+all: $(NAME) 
+
+$(NAME): $(OBJS) 
+	ar -rcs $(NAME) $(OBJS)
 
 $(OBJS): $(SRCS)
+	make copy
 	${CC} -I . -c ${CFLAGS} ${SRCS}
 
+# bonus: $(NAME) $(OBJS_BONUS)
+# 	ar rcs $(NAME) $(OBJS)
+
+# $(OBJS_BONUS): $(SRCS_BONUS)
+# 	${CC} -I . -c ${CFLAGS} ${SRCS}
+	
 clean:
-	rm -f ${OBJS}
-	# rm -f ${SRCS} 
+	rm -f ${OBJS} $(OBJS_BONUS)
+#	rm -f ${SRCS} $(SRCS_BONUS)
 
 fclean: clean
 	rm -f ${NAME}
@@ -79,16 +98,22 @@ copy:
 	rm -f ${SRCS}
 	cp -f Part*/ft_*.c .
 	cp -f Bonus/ft_*.c .
+	
+rebonus:	fclean bonus
 
 # 	compile all the .c, in all pastes of the main folder, create the libft.a and compile the main.c with the libft
 run: re 
 	${CC} ${CFLAGS} main.c -L . -lft && ./a.out
 
+
 teste2: re
 	cd teste2 && bash grademe.sh
 
 teste1: re
-	cd teste && make m
+	cd teste && make b
 
-teste3:
-	cd ../libft-unit-test && make
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(FILES) $(BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJECTS) $(BONUS_OBJECTS)
+
+.PHONY: all clean fclean re copy so

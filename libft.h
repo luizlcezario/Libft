@@ -6,22 +6,9 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/27 18:34:33 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/29 17:19:44 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/**
-teste1 - fails
-putnbr_fd 
-strrchr
-
-teste2 - fails
-strrchr
-!memcpy
-!memmove
-!trim
-*/
-
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -29,7 +16,7 @@ strrchr
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -38,7 +25,6 @@ typedef struct	s_list
 # define INT_MAX 2147483647
 
 # define INT_MIN -2147483648
-
 
 //*******************************-Part_1-***************************************
 
@@ -187,7 +173,6 @@ char	*ft_strrchr(const char *str, int n);
  */
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
-
 /**
  * @brief Function locates the first C in the STR, it searches only until the N 
  * byte
@@ -206,7 +191,6 @@ void	*ft_memchr(const void *str, int c, size_t n);
  * @return 0 for egual || > 0 for str || 0 < for ptr
  */
 int		ft_memcmp(const void *str, const void *ptr, size_t n);
-
 
 /**
  * @brief Function locates the first PTR in the STR, it searches only until the 
@@ -281,7 +265,7 @@ char	*ft_strtrim(char const *s1, char const *set);
  * @return a pointer to the other pointer that have all the parters of the
  * splited string S
  */
-char **ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
 
 /**
  * @brief Transform the int N in the a string with the value of N.
@@ -291,27 +275,100 @@ char **ft_split(char const *s, char c);
  */
 char	*ft_itoa(int n);
 
-//		Create a new string with the function F() aplies to each char of S
+/**
+ * @brief Applies the function F to each character of the string S to create 
+ * a new string resulting from successive applications of F.
+ * 
+ * @param s string to be copy and modified .
+ * @param f pointer to function to be used in each char of the S.
+ * @return the string with the F applied in each Character of S.
+ */
 char	*ft_strmapi(char const *s, char (*f)(unsigned
-int, char));
+				int, char));
 
-//		aplies the F() function to each char of the S
+/**
+ * @brief Applies the function f to each character of the string passed as 
+ * argument, and passing its index as first argument. Each character is passed 
+ * by address to f to be modified if necessary.
+ * 
+ * @param s string to be copy and modified .
+ * @param f pointer to function to be used in each char of the S
+ * @return the string with the F applied in each Character of S
+ */
 void	ft_striteri(char *s, void (*f)(unsigned int,
-char*));
+				char*));
 
-//		Print char C with the descriptor FD
+/**
+ * @brief Outputs the caracter C to the given file descriptor.
+ * @param c The caracter to output.
+ * @param fd The file descriptor on which to write.
+ */
 void	ft_putchar_fd(char c, int fd);
 
-//		Print string S with the descriptor FD
+/**
+ * @brief Outputs the string S to the given file descriptor.
+ * @param s The string to output.
+ * @param fd The file descriptor on which to write.
+ */
 void	ft_putstr_fd(char *s, int fd);
 
-//		print a integer N with the descriptor FD
+/**
+ * @brief  write Description Outputs the string ’s’ to the given file 
+ * descriptor, followed by a newline.
+ * @param s  The string to output.
+ * @param fd The file descriptor on which to write.
+ */
+void	ft_putendl_fd(char *s, int fd);
+/**
+ * @brief Outputs the integer N to the given file descriptor.
+ * @param n	the integer to be printed.
+ * @param fd the descriptor.
+ */
 void	ft_putnbr_fd(int n, int fd);
 
-//		print the S strig with the \n in the end
-void	ft_putendl_fd(char *s, int fd);
+//****************************** bonus ***************************************
 
-//		Create a new element for be linking tothe rest of the array 
+/**
+ * @brief Allocates and returns a new element of t_list. with the value of 
+ * CONTENT and the variable NEXT is initialized to NULL.
+ * 
+ * @param content the string to be create to the new t_list.
+ * @return return the adrres of the new t_list element.
+ */
 t_list	*ft_lstnew(void *content);
+
+/**
+ * @brief 
+ * 
+ * @param lst list of adress of t_lists
+ * @param new elemt to be add to the start of the LST
+ */
+void	ft_lstadd_front(t_list **lst, t_list *new);
+
+/**
+ * @brief 
+ * 
+ * @param lst 
+ * @return int 
+ */
+int		ft_lstsize(t_list *lst);
+
+/**
+ * @brief acha o ultimo elemnto da lista.
+ * 
+ * @param lst um elemento de lista.
+ * @return o ultimo elemento da lista.
+ */
+t_list	*ft_lstlast(t_list *lst);
+
+void	ft_lstadd_back(t_list **lst, t_list *new);
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *));
 
 #endif
