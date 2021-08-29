@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 12:53:11 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 18:56:22 by llima-ce         ###   ########.fr       */
+/*   Created: 2021/08/17 10:25:10 by llima-ce          #+#    #+#             */
+/*   Updated: 2021/08/27 15:01:58 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-int	ft_atoi(const char *dest)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	sign;
-	int	num;
-	int	a;
+	char	*d;
+	char	*s;
 
-	a = 0;
-	if (*dest == 0)
-		return (0);
-	while (dest[a] == ' ' || (dest[a] >= 9 && dest[a] <= 13))
-		a++;
-	sign = 1;
-	if (dest[a] == '+' || dest[a] == '-')
+	s = (char *)src;
+	d = (char *)dest;
+	if (s < d)
 	{
-		if (dest[a] == '-')
-			sign = -sign;
-		a++;
+		while (n--)
+			d[n] = s[n];
 	}
-	num = 0;
-	while (dest[a] <= '9' && dest[a] >= '0')
+	else
 	{
-		num *= 10;
-		num = num + dest[a] - 48;
-		a++;
+		ft_memcpy(d, s, n);
 	}
-	return (num * sign);
+	return (dest);
 }

@@ -1,40 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 12:53:11 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 18:56:22 by llima-ce         ###   ########.fr       */
+/*   Created: 2021/08/16 22:53:50 by llima-ce          #+#    #+#             */
+/*   Updated: 2021/08/27 13:52:14 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-int	ft_atoi(const char *dest)
+int	ft_isalnum(int arg)
 {
-	int	sign;
-	int	num;
-	int	a;
-
-	a = 0;
-	if (*dest == 0)
-		return (0);
-	while (dest[a] == ' ' || (dest[a] >= 9 && dest[a] <= 13))
-		a++;
-	sign = 1;
-	if (dest[a] == '+' || dest[a] == '-')
-	{
-		if (dest[a] == '-')
-			sign = -sign;
-		a++;
-	}
-	num = 0;
-	while (dest[a] <= '9' && dest[a] >= '0')
-	{
-		num *= 10;
-		num = num + dest[a] - 48;
-		a++;
-	}
-	return (num * sign);
+	if ((arg <= 'z' && arg >= 'a') || (arg <= 'Z' && arg >= 'A')
+		|| (arg <= '9' && arg >= '0'))
+		return (8);
+	return (0);
 }

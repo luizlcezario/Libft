@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 12:53:11 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 18:56:22 by llima-ce         ###   ########.fr       */
+/*   Created: 2021/08/17 08:37:27 by llima-ce          #+#    #+#             */
+/*   Updated: 2021/08/27 21:45:34 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-int	ft_atoi(const char *dest)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	sign;
-	int	num;
-	int	a;
+	size_t	i;
+	char	*d;
+	char	*s;
 
-	a = 0;
-	if (*dest == 0)
-		return (0);
-	while (dest[a] == ' ' || (dest[a] >= 9 && dest[a] <= 13))
-		a++;
-	sign = 1;
-	if (dest[a] == '+' || dest[a] == '-')
+	i = 0;
+	d = (char *)dest;
+	s = (char *)src;
+	while (i < n)
 	{
-		if (dest[a] == '-')
-			sign = -sign;
-		a++;
+		d[i] = s[i];
+		i++;
 	}
-	num = 0;
-	while (dest[a] <= '9' && dest[a] >= '0')
-	{
-		num *= 10;
-		num = num + dest[a] - 48;
-		a++;
-	}
-	return (num * sign);
+	return (dest);
 }

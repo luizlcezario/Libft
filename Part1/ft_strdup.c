@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 15:28:59 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/27 13:52:57 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/29 18:58:49 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strdup(const char *str)
 
 	size = ft_strlen(str) + 1;
 	ptr = ft_calloc(size, sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
 	ft_strlcpy(ptr, str, size);
 	return (ptr);
 }

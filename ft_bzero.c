@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 12:53:11 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 18:56:22 by llima-ce         ###   ########.fr       */
+/*   Created: 2021/08/17 08:01:26 by llima-ce          #+#    #+#             */
+/*   Updated: 2021/08/27 15:17:20 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-int	ft_atoi(const char *dest)
+void	ft_bzero(void *str, size_t n)
 {
-	int	sign;
-	int	num;
-	int	a;
-
-	a = 0;
-	if (*dest == 0)
-		return (0);
-	while (dest[a] == ' ' || (dest[a] >= 9 && dest[a] <= 13))
-		a++;
-	sign = 1;
-	if (dest[a] == '+' || dest[a] == '-')
-	{
-		if (dest[a] == '-')
-			sign = -sign;
-		a++;
-	}
-	num = 0;
-	while (dest[a] <= '9' && dest[a] >= '0')
-	{
-		num *= 10;
-		num = num + dest[a] - 48;
-		a++;
-	}
-	return (num * sign);
+	ft_memset(str, '\0', n);
 }

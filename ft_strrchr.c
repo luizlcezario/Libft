@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 12:53:11 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 18:56:22 by llima-ce         ###   ########.fr       */
+/*   Created: 2021/08/17 18:03:27 by llima-ce          #+#    #+#             */
+/*   Updated: 2021/08/27 15:53:54 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-int	ft_atoi(const char *dest)
+char	*ft_strrchr(const char *str, int n)
 {
-	int	sign;
-	int	num;
-	int	a;
+	int		len;
+	char	ch;
 
-	a = 0;
-	if (*dest == 0)
-		return (0);
-	while (dest[a] == ' ' || (dest[a] >= 9 && dest[a] <= 13))
-		a++;
-	sign = 1;
-	if (dest[a] == '+' || dest[a] == '-')
+	ch = (unsigned char)n;
+	len = ft_strlen(str);
+	if(ch == 0)
+		return((char *)(str + len));
+	while (--len >= 0)
 	{
-		if (dest[a] == '-')
-			sign = -sign;
-		a++;
+		if (*(str + len) == ch)
+		{
+			return ((char *)(str + len));
+		}
 	}
-	num = 0;
-	while (dest[a] <= '9' && dest[a] >= '0')
-	{
-		num *= 10;
-		num = num + dest[a] - 48;
-		a++;
-	}
-	return (num * sign);
+	return (NULL);
 }

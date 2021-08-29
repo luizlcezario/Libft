@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 12:53:11 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 18:56:22 by llima-ce         ###   ########.fr       */
+/*   Created: 2021/08/26 21:43:23 by user42            #+#    #+#             */
+/*   Updated: 2021/08/29 17:33:17 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-int	ft_atoi(const char *dest)
+
+static void	loop(int nb,int fd)
 {
-	int	sign;
-	int	num;
-	int	a;
+	if(nb >= 10)
+	{
+		loop(nb / 10, fd);
+	}
+	ft_putchar_fd((nb % 10) + '0', fd);
+}
 
-	a = 0;
-	if (*dest == 0)
-		return (0);
-	while (dest[a] == ' ' || (dest[a] >= 9 && dest[a] <= 13))
-		a++;
-	sign = 1;
-	if (dest[a] == '+' || dest[a] == '-')
+void	ft_putnbr_fd(int nb,  int fd)
+{
+	if (nb == INT_MIN)
 	{
-		if (dest[a] == '-')
-			sign = -sign;
-		a++;
+		write(fd, "-", 1);
+		loop(nb / -10 , fd);
+		write(fd, "8", 1);
 	}
-	num = 0;
-	while (dest[a] <= '9' && dest[a] >= '0')
+	else if (nb < 0)
 	{
-		num *= 10;
-		num = num + dest[a] - 48;
-		a++;
+		nb *= -1;
+		write(fd, "-", 1);
 	}
-	return (num * sign);
+	if (nb >= 0)
+		loop(nb, fd);
 }

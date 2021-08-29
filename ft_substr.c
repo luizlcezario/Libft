@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 19:48:50 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 19:03:09 by llima-ce         ###   ########.fr       */
+/*   Created: 2021/08/18 16:09:09 by llima-ce          #+#    #+#             */
+/*   Updated: 2021/08/26 22:26:37 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strcpy(char *res, char *str)
+static size_t	ft_strnlen(const char *s, size_t n)
 {
-	int	a;
+	size_t	i;
 
-	a = 0;
-	while (str[a] != 0)
-	{
-		res[a] = str[a];
-		a++;
-	}
-	res[a] = 0;
-	return (res);
+	i = 0;
+	while (s[i] && i < n)
+		i ++;
+	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	str_len;
+	size_t	a;
 	char	*res;
 
-	if(!s1 || !s2)
+	if (!s)
 		return (NULL);
-	str_len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	res = ft_calloc(str_len, sizeof(char));
-	if (res == NULL)
+	a = ft_strlen(s);
+	if (a > start)
+		len = ft_strnlen(&s[start], len);
+	else
+		return (ft_strdup(""));
+	res = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!res)
 		return (NULL);
-	res = ft_strcpy(res, (char *)s1);
-	res = ft_strcpy(res + ft_strlen(s1), (char *)s2) - ft_strlen(s1);
+	ft_strlcpy(res, &s[start], len + 1);
 	return (res);
 }

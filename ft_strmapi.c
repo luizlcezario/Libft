@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 12:53:11 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 18:56:22 by llima-ce         ###   ########.fr       */
+/*   Created: 2021/08/26 21:09:38 by user42            #+#    #+#             */
+/*   Updated: 2021/08/26 22:48:01 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-int	ft_atoi(const char *dest)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	sign;
-	int	num;
-	int	a;
+	char	*res;
+	size_t	count;
 
-	a = 0;
-	if (*dest == 0)
-		return (0);
-	while (dest[a] == ' ' || (dest[a] >= 9 && dest[a] <= 13))
-		a++;
-	sign = 1;
-	if (dest[a] == '+' || dest[a] == '-')
+	count = 0;
+	res = ft_strdup(s);
+	while (res[count] != 0)
 	{
-		if (dest[a] == '-')
-			sign = -sign;
-		a++;
+		res[count] = f(count, res[count]);
+		count++;
 	}
-	num = 0;
-	while (dest[a] <= '9' && dest[a] >= '0')
-	{
-		num *= 10;
-		num = num + dest[a] - 48;
-		a++;
-	}
-	return (num * sign);
+	return (res);
 }
