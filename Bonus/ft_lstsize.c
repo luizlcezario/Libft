@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 15:52:17 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 17:30:25 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/29 18:37:59 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_lstsize(t_list *lst)
 	int		len;
 
 	tmp = lst;
+	len = 0;
 	while (tmp != NULL)
 	{
 		len++;
