@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 21:10:49 by user42            #+#    #+#             */
-/*   Updated: 2021/08/26 21:53:03 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/29 19:22:01 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	len;
 
-	len = ft_strlen(s);
-	write(fd, s, len);
+	if(s)
+	{
+		while(*s)
+			write(fd, s++, 1);
+	}
 }
