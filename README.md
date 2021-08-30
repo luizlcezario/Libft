@@ -148,7 +148,7 @@ The project
 - [`ft_calloc`](Part1/ft_calloc.c)	- allocates memory and sets its bytes' values to 0
 
 ### Non-standard functions
-- [`ft_substr`](Part2/Part1/ft_substr.c)	- returns a substring from a string
+- [`ft_substr`](Part2/ft_substr.c)	- returns a substring from a string
 - [`ft_strjoin`](Part2/ft_strjoin.c)	- concatenates two strings
 - [`ft_strtrim`](Part2/ft_strtrim.c)	- trims the beginning and end of string with specific set of chars
 - [`ft_split`](Part2/ft_split.c)	- splits a string using a char as parameter
