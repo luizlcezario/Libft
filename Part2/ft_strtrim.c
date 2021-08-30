@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 21:00:36 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 19:19:57 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/30 18:05:20 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 	char	*res;
 
-	if(s1 == NULL || set == NULL)
+	if (s1 == NULL || set == NULL)
 		return (NULL);
 	str_len = ft_strlen(s1);
 	start = get_Start(s1, set, 0);

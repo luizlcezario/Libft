@@ -6,9 +6,11 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:02:57 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/26 21:56:08 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/30 17:57:59 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int arg)
 {

@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/29 17:19:44 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/30 17:53:52 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -338,37 +338,74 @@ void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(void *content);
 
 /**
- * @brief 
+ * @brief Add a new elemnt to start of the linked list apointed by lst.
  * 
- * @param lst list of adress of t_lists
- * @param new elemt to be add to the start of the LST
+ * @param lst list of adress of t_lists.
+ * @param new elemt to be add to the start of the LST.
  */
 void	ft_lstadd_front(t_list **lst, t_list *new);
 
 /**
- * @brief 
+ * @brief find the length of the linked list apointed by LST
  * 
- * @param lst 
- * @return int 
+ * @param lst linked list to be count.
+ * @return length of LST
  */
 int		ft_lstsize(t_list *lst);
 
 /**
- * @brief acha o ultimo elemnto da lista.
+ * @brief find the last element of the linked list.
  * 
- * @param lst um elemento de lista.
- * @return o ultimo elemento da lista.
+ * @param lst adrres of a linked list.
+ * @return the adrres pf the linked list.
  */
 t_list	*ft_lstlast(t_list *lst);
 
+/**
+ * @brief add a new elemnt to the linked list in the end.
+ * 
+ * @param lst apointed a linked list.
+ * @param new the new elemtn to be add.
+ */
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
+/**
+ * @brief aplies the function DEL to the Lst and them free the LST.
+ * 
+ * @param lst linked elemnt to be deleted and free.
+ * @param del functio to delete the element.
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
+/**
+ * @brief aplies the del funciton to the all element of the linked list and the 
+ * free all 
+ * 
+ * @param lst list be clear and deleted.
+ * @param del functoin to delete the elements.
+ */
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 
+/**
+ * @brief Iterates the list ’lst’ and applies the function ’f’ to the content 
+ * of each element.
+ * 
+ * @param lst The adress of a pointer to an element.
+ * @param f The adress of the function used to iterate on the list.
+ */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *));
+/**
+ * @brief Iterates the list ’lst’ and applies the function ’f’ to the content 
+ * of each element. Creates a new list resulting of the successive applications 
+ * of the function ’f’.
+ * 
+ * @param lst The adress of a pointer to an element.
+ * @param f The adress of the function used to iterate on the list.
+ * @param del The adress of the function used to delete the content of an 	
+ * element if needed.
+ * @return The new list. NULL if the allocation fails.
+ */
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

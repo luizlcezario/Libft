@@ -6,9 +6,11 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 16:13:45 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/27 14:40:09 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/08/30 17:58:27 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {
