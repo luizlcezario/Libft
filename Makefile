@@ -70,6 +70,7 @@ OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME) 
+	make clean 
 
 $(NAME): $(OBJS) 
 	ar -rcs $(NAME) $(OBJS)
@@ -85,30 +86,20 @@ $(OBJS_BONUS): $(SRCS_BONUS)
 	${CC} -I . -c ${CFLAGS} ${SRCS_BONUS}
 	
 clean:
-	rm -f ${OBJS} $(OBJS_BONUS)
-#	rm -f ${SRCS} $(SRCS_BONUS)
+	rm -f $(OBJS) $(OBJS_BONUS)
+	rm -f $(SRCS) $(SRCS_BONUS)
 
 fclean: clean
 	rm -f ${NAME}
 
 re: fclean copy all
 
+#copy all the files to the main 
 copy:
 	rm -f ${SRCS}
 	cp -f Part*/ft_*.c .
 	cp -f Bonus/ft_*.c .
 	
 rebonus: fclean copy bonus
-
-# 	compile all the .c, in all pastes of the main folder, create the libft.a and compile the main.c with the libft
-run: re 
-	${CC} ${CFLAGS} main.c -L . -lft && ./a.out
-
-
-teste2: re
-	cd teste2 && bash grademe.sh
-
-teste1: re
-	cd teste && make b
 
 .PHONY: all clean fclean re copy bonus rebonus
