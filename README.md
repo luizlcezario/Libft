@@ -193,7 +193,7 @@ $ git clone https://github.com/luizlcezario/Libft_Test.git
 # Enter in the Folder
 $ cd Libft
 
-# *************COMANDOS************ #
+# *************COMMANDS************ #
 # run - run compile all the libtest with the your libft and run the all tests
 $ make all
 # clean - remove the .o and .c files 
