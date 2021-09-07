@@ -6,38 +6,26 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 19:48:50 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/30 18:07:39 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/09/02 19:36:04 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strcpy(char *res, char *str)
-{
-	int	a;
-
-	a = 0;
-	while (str[a] != 0)
-	{
-		res[a] = str[a];
-		a++;
-	}
-	res[a] = 0;
-	return (res);
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	str_len;
+	size_t	s1_len;
+	size_t	s2_len;
 	char	*res;
 
 	if (!s1 || !s2)
 		return (NULL);
-	str_len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	res = ft_calloc(str_len, sizeof(char));
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	res = ft_calloc(s1_len + s2_len + 1, sizeof(char));
 	if (res == NULL)
 		return (NULL);
-	res = ft_strcpy(res, (char *)s1);
-	res = ft_strcpy(res + ft_strlen(s1), (char *)s2) - ft_strlen(s1);
+	ft_strlcpy(res, s1 ,s1_len + 1);
+	ft_strlcpy(res + s1_len, s2, s2_len + 1);
 	return (res);
 }

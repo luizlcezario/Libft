@@ -6,7 +6,7 @@
 #    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/08/30 18:53:46 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/09/07 10:24:10 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,37 +69,45 @@ OBJS = $(SRCS:.c=.o)
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
-all: $(NAME) 
-	make clean 
+all: copy $(NAME) 
+	make clean
 
 $(NAME): $(OBJS) 
 	ar -rcs $(NAME) $(OBJS)
 
 $(OBJS): $(SRCS)
 	make copy
-	${CC} -I . -c ${CFLAGS} ${SRCS}
+	$(CC) -I . -c $(CFLAGS) $(SRCS)
 
-bonus: $(OBJS_BONUS)
+bonus: copy $(OBJS_BONUS)
 	ar rcs $(NAME) $(OBJS_BONUS)
+	make clean
 
 $(OBJS_BONUS): $(SRCS_BONUS)
-	${CC} -I . -c ${CFLAGS} ${SRCS_BONUS}
+	$(CC) -I . -c $(CFLAGS) $(SRCS_BONUS)
 	
 clean:
 	rm -f $(OBJS) $(OBJS_BONUS)
 	rm -f $(SRCS) $(SRCS_BONUS)
 
 fclean: clean
-	rm -f ${NAME}
+	rm -f $(NAME)
 
 re: fclean copy all
 
-#copy all the files to the main 
 copy:
-	rm -f ${SRCS}
 	cp -f Part*/ft_*.c .
 	cp -f Bonus/ft_*.c .
-	
+
 rebonus: fclean copy bonus
+
+testeB: rebonus
+	cd teste && make b
+
+testeM: all
+	cd teste && make m
+
+teste: rebonus
+	cd teste2 && bash grademe.sh
 
 .PHONY: all clean fclean re copy bonus rebonus
