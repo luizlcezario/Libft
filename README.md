@@ -16,7 +16,7 @@
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/luizlcezario/Libft?color=682998">
   </a> 
 
-  <a href="https://github.com/luizlcezario/N/stargazers">
+  <a href="https://github.com/luizlcezario/Libft/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/luizlcezario/Libft?color=682998&logo=github">
   </a>
 </p>
@@ -47,7 +47,7 @@ This is a Library of function that's we will use in the others projects of the 4
 Part 1
 </h3>
 
-> <i>In this first part, you must re-code a set of the libc functions, as defined in their man. Your functions will need to present the same prototype and behaviors as the originals. Your functions’ names must be prefixed by “ft_”. For instance strlen becomes ft_strlen.</i>
+<i>In this first part, you must re-code a set of the libc functions, as defined in their man. Your functions will need to present the same prototype and behaviors as the originals. Your functions’ names must be prefixed by “ft_”. For instance strlen becomes ft_strlen.</i>
 
 <p align=center>
 • isalpha
@@ -77,7 +77,7 @@ Part 1
 Part 2
 </h3>
 
-> <i>In this second part, you must code a set of functions that are either not included in the libc, or included in a different form. Some of these functions can be useful to write Part 1’s functions.</i>
+<i>In this second part, you must code a set of functions that are either not included in the libc, or included in a different form. Some of these functions can be useful to write Part 1’s functions.</i>
 
 <p align=center>
 • substr
@@ -97,7 +97,7 @@ Part 2
 Bonus
 </h3>
 
-> <i>The following functions will allow you to easily use your lists.</i>
+<i>The following functions will allow you to easily use your lists.</i>
 <p align=center>
 • lstnew
 • lstadd_front

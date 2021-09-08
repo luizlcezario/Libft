@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/09/08 15:59:34 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/09/08 16:43:38 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ typedef struct s_list
 //*******************************-Part_1-***************************************
 
 /**
- * @brief if ARG is a alphabetic value returns 1024.
+ * @brief if ARG is an alphabetic value returns 1024.
  * @param	arg.
  * @return 1024.
 */		
 int		ft_isalpha(int arg);
 
 /**
- * @brief if ARG is a alphabetic value returns 8.
+ * @brief if ARG is an alphabetic value returns 8.
  * @param	arg.
  * @return 8.
 */
 int		ft_isalnum(int arg);
 
 /**
- * @brief if ARG is a ascii value returns 1.
+ * @brief if ARG is an ASCII value returns 1.
  * @param	arg.
  * @return	1.
 */
@@ -64,10 +64,10 @@ int		ft_isdigit(int arg);
 int		ft_isprint(int arg);
 
 /**
- * @brief Function return the lentgh of STR
+ * @brief Function returns the lentgh of STR.
  * 
  * @param str string to be counted.
- * @return length of th STR.
+ * @return length of the STR.
  */
 size_t	ft_strlen(const char *str);
 
@@ -75,33 +75,33 @@ size_t	ft_strlen(const char *str);
  * @brief function fills the first N bytes of the memory area pointed to by PTR 
  * with the constant byte X.
  * @param	DEST pointer to the elements to be replaced.
- * @param	X caracter to be placed.
+ * @param	X character to be placed.
  * @param	N until the this bit.
  * @return	the dest with the copy of src.
 */
 void	*ft_memset(void *ptr, int x, size_t n);
 
 /**
- * @brief Addding a NULL byte in the address of STR and more N more addresses 
+ * @brief Adding a NULL byte in the address of STR and more N more addresses 
  * after.
- * @param str address to be addd \0.
- * @param n addd until this.
+ * @param str address to be add \0.
+ * @param n add until this.
  */
 void	ft_bzero(void *str, size_t n);
 
 /**
  * @brief Copy the SRC to DEST, it copies only until the N byte and then 
- * complete with null byte.
+ * complete with a null byte.
  * @param	DEST to be sub.
  * @param	SRC to be copy.
- * @param	N until the this bit.
+ * @param	N until this bit.
  * @return	the dest with the copy of src.
 */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 /**
  * @brief Copy the SRC to DEST, it copies only until the N byte and then 
- * complete with null byte.
+ * complete with a null byte.
  * @param	DEST to be sub.
  * @param	SRC to be copy.
  * @param	N until the this bit.
@@ -130,7 +130,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 
 /**
- * @brief Function trasnform lowercase letter into uppercase.
+ * @brief Function trasform lowercase letter into uppercase.
  * 
  * @param c to be verify
  * @return int
@@ -138,7 +138,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size);
 int		ft_toupper(int c);
 
 /**
- * @brief Function trasnform uppercase letter into lowercase.
+ * @brief Function trasform uppercase letter into lowercase.
  * 
  * @param c to be verify
  * @return int 
@@ -196,15 +196,15 @@ int		ft_memcmp(const void *str, const void *ptr, size_t n);
  * @brief Function locates the first PTR in the STR, it searches only until the 
  * N byte.
  * @param str to be searched.
- * @param ptr to be finded.
+ * @param ptr to be found.
  * @param n search until this byte.
  * @return the first ptr in str.
  */
 char	*ft_strnstr(const char *str, const char *ptr, size_t n);
 
 /**
- * @brief Transform a string witha  number in a integer with the same value.
- * @param dest string to be transforme in int.
+ * @brief Transform a string with a number in an integer with the same value.
+ * @param dest string to be transformed in int.
  * @return int
  */
 int		ft_atoi(const char *dest);
@@ -212,8 +212,8 @@ int		ft_atoi(const char *dest);
 /**
  * @brief Allocates memory and in each memory put one 0.
  * 
- * @param nelem the amount of memory to be allocate
- * @param size the size of the memory to be allocate
+ * @param nelem the amount of memory to be allocate.
+ * @param size the size of the memory to be allocate.
  * @return address of the space that was allocated.
  */
 void	*ft_calloc(size_t nelem, size_t size);
@@ -222,7 +222,7 @@ void	*ft_calloc(size_t nelem, size_t size);
  * @brief Copy the STR to a new pointer.
  * 
  * @param str the string to be copy
- * @return a new adrres with the same same string of str
+ * @return a new address with the same string of str.
  */
 char	*ft_strdup(const char *str);
 
@@ -231,15 +231,15 @@ char	*ft_strdup(const char *str);
 /**
  * @brief Copy the from the (S + START) to (LEN).
  * 
- * @param s the adrres of the start of the string
- * @param start start the copie from here.
+ * @param s the address of the start of the string
+ * @param start start the copy from here.
  * @param len number of the bytes to be copy.
- * @return a new andress to with the copie.
+ * @return a new address to with the copy.
  */
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 /**
- * @brief Copy the S1 concat with S2.
+ * @brief Copy the S1 concatenate with S2.
  * 
  * @param s1 string to start the new string.
  * @param s2 string to end the new string.
@@ -249,11 +249,11 @@ char	*ft_strjoin(char const *s1, char const *s2);
 
 /**
  * @brief Create a new pointer that points to the S1 - all the ocurrencies of 
- * the caractes of SET in the start and in the end of the S1.
+ * the character of SET at the start and at the end of the S1.
  * 
- * @param s1 string to be trimed 
- * @param set the caracteres to be trimed in s1
- * @return the new pointer with the string trimed
+ * @param s1 string to be trimmed. 
+ * @param set the characteres to be trimmed in s1.
+ * @return the new pointer with the string trimmed.
  */
 char	*ft_strtrim(char const *s1, char const *set);
 
@@ -268,10 +268,10 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 
 /**
- * @brief Transform the int N in the a string with the value of N.
+ * @brief Transform the int N in the string with the value of N.
  * 
  * @param n transform the int in a string the represents the int.
- * @return the string thats is igual to the int.
+ * @return the string that's is equal to the int.
  */
 char	*ft_itoa(int n);
 
@@ -279,7 +279,7 @@ char	*ft_itoa(int n);
  * @brief Applies the function F to each character of the string S to create 
  * a new string resulting from successive applications of F.
  * 
- * @param s string to be copy and modified .
+ * @param s string to be copy and modify.
  * @param f pointer to function to be used in each char of the S.
  * @return the string with the F applied in each Character of S.
  */
@@ -287,20 +287,20 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned
 				int, char));
 
 /**
- * @brief Applies the function f to each character of the string passed as 
- * argument, and passing its index as first argument. Each character is passed 
- * by address to f to be modified if necessary.
- * 
- * @param s string to be copy and modified .
- * @param f pointer to function to be used in each char of the S
- * @return the string with the F applied in each Character of S
+ * @brief Applies the function f to each character of the string passed as
+ * argument, and passing its index as the first argument. Each character is
+ * passed by address to f to be modified if necessary.
+ *
+ * @param s string to be copied and modified .
+ * @param f pointer to function to be used in each char of the S.
+ * @return the string with the F applied in each Character of S.
  */
 void	ft_striteri(char *s, void (*f)(unsigned int,
 				char*));
 
 /**
- * @brief Outputs the caracter C to the given file descriptor.
- * @param c The caracter to output.
+ * @brief Outputs the character C to the given file descriptor.
+ * @param c The character to output.
  * @param fd The file descriptor on which to write.
  */
 void	ft_putchar_fd(char c, int fd);
@@ -332,21 +332,21 @@ void	ft_putnbr_fd(int n, int fd);
  * @brief Allocates and returns a new element of t_list. with the value of 
  * CONTENT and the variable NEXT is initialized to NULL.
  * 
- * @param content the string to be create to the new t_list.
- * @return return the adrres of the new t_list element.
+ * @param content the string to be created to the new t_list.
+ * @return returns the address of the new t_list element.
  */
 t_list	*ft_lstnew(void *content);
 
 /**
- * @brief Add a new elemnt to start of the linked list apointed by lst.
- * 
- * @param lst list of adress of t_lists.
+ * @brief Add a new element to the start of the linked list appointed by lst.
+ *
+ * @param lst list of address of t_lists.
  * @param new elemt to be add to the start of the LST.
  */
 void	ft_lstadd_front(t_list **lst, t_list *new);
 
 /**
- * @brief find the length of the linked list apointed by LST
+ * @brief find the length of the linked list appointed by LST
  * 
  * @param lst linked list to be count.
  * @return length of LST
@@ -356,33 +356,33 @@ int		ft_lstsize(t_list *lst);
 /**
  * @brief find the last element of the linked list.
  * 
- * @param lst adrres of a linked list.
- * @return the adrres pf the linked list.
+ * @param lst address of a linked list.
+ * @return the address of the linked list.
  */
 t_list	*ft_lstlast(t_list *lst);
 
 /**
- * @brief add a new elemnt to the linked list in the end.
- * 
- * @param lst apointed a linked list.
- * @param new the new elemtn to be add.
+ * @brief add a new element to the linked list in the end.
+ *
+ * @param lst appointed a linked list.
+ * @param new the new element to be added.
  */
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
 /**
- * @brief aplies the function DEL to the Lst and them free the LST.
- * 
- * @param lst linked elemnt to be deleted and free.
- * @param del functio to delete the element.
+ * @brief aplies the function DEL to the LST and them free the LST.
+ *
+ * @param lst linked element to be deleted and free.
+ * @param del function to delete the element.
  */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
 /**
- * @brief aplies the del funciton to the all element of the linked list and the 
- * free all 
- * 
+ * @brief applies the del function to the all elements of the linked list and
+ * the free all
+ *
  * @param lst list be clear and deleted.
- * @param del functoin to delete the elements.
+ * @param del functions to delete the elements.
  */
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 
@@ -390,8 +390,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
  * @brief Iterates the list ’lst’ and applies the function ’f’ to the content 
  * of each element.
  * 
- * @param lst The adress of a pointer to an element.
- * @param f The adress of the function used to iterate on the list.
+ * @param lst The address of a pointer to an element.
+ * @param f The address of the function used to iterate on the list.
  */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
@@ -400,12 +400,12 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * of each element. Creates a new list resulting of the successive applications 
  * of the function ’f’.
  * 
- * @param lst The adress of a pointer to an element.
- * @param f The adress of the function used to iterate on the list.
- * @param del The adress of the function used to delete the content of an 	
+ * @param lst The address of a pointer to an element.
+ * @param f The address of the function used to iterate on the list.
+ * @param del The address of the function used to delete the content of an
  * element if needed.
  * @return The new list. NULL if the allocation fails.
  */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-#endif
+# endif
