@@ -32,7 +32,7 @@
 # :pushpin: Index
 
 * [What's this Repo?](#sparkles_What's-Libft-of-42?)
-* [List of Fucntions](#clipboard_List-of-Fucntions)
+* [List of Functions](#clipboard_List-of-Fucntions)
 * [Technologies](#computer_Technologies)
 * [How to Run](#construction_How-to-Run)
 * [Find a Bug? Or somenthing need to change?](#bug_Issues?)
@@ -42,8 +42,8 @@
 This is a Library of function that's we will use in the others projects of the 42 school.
 
 
-## :clipboard: List of Fucntions
-
+## :clipboard: List of Functions
+<h3>
 Part 1
 </h3>
 
@@ -193,7 +193,7 @@ $ git clone https://github.com/luizlcezario/Libft_Test.git
 # Enter in the Folder
 $ cd Libft
 
-# *************COMANDOS************ #
+# *************COMMANDS************ #
 # run - run compile all the libtest with the your libft and run the all tests
 $ make all
 # clean - remove the .o and .c files 
@@ -213,7 +213,7 @@ $ gcc main.c -L . -lft
 
 # :bug: Issues?
 
-Please feel free **to create a new issue** with its title and description on the issues page of the[Libft](https://github.com/luizlcezario/Libft/issues) Repository. If you have already found the solution to the problem, **I would love to review your pull request**!
+Please feel free **to create a new issue** with its title and description on the issues page of the [Libft](https://github.com/luizlcezario/Libft/issues) Repository. If you have already found the solution to the problem, **I would love to review your pull request**!
 
 
-Give ⭐️ if you like this project this will help me!
+Give ⭐️ if you like this project, this will help me!
