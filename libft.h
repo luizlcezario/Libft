@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/08/30 17:53:52 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/09/08 15:59:34 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int		ft_isdigit(int arg);
 int		ft_isprint(int arg);
 
 /**
- * @brief 	Function return the lentgh of STR
+ * @brief Function return the lentgh of STR
  * 
  * @param str string to be counted.
  * @return length of th STR.
@@ -130,7 +130,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 
 /**
- * @brief Function trasform lowercase letter into uppercase.
+ * @brief Function trasnform lowercase letter into uppercase.
  * 
  * @param c to be verify
  * @return int
@@ -138,7 +138,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size);
 int		ft_toupper(int c);
 
 /**
- * @brief Function trasform uppercase letter into lowercase.
+ * @brief Function trasnform uppercase letter into lowercase.
  * 
  * @param c to be verify
  * @return int 

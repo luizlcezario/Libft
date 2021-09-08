@@ -6,7 +6,7 @@
 #    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/09/07 10:24:10 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/09/07 18:04:09 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,6 @@ SRCS_BONUS =ft_lstnew.c		\
 			ft_lstadd_back.c\
 			ft_lstdelone.c	\
 			ft_lstclear.c	\
-			ft_lstiter.c	\
 			ft_lstiter.c	\
 			ft_lstmap.c
 		
