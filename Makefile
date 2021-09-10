@@ -6,7 +6,7 @@
 #    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/09/07 18:04:09 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/09/10 00:00:58 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,11 +100,9 @@ copy:
 
 rebonus: fclean copy bonus
 
-testeB: rebonus
-	cd teste && make b
+testeB: all rebonus
+	cd teste && make strtrim
 
-testeM: all
-	cd teste && make m
 
 teste: rebonus
 	cd teste2 && bash grademe.sh

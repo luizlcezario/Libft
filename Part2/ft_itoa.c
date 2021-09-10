@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 21:51:57 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/09/07 18:09:12 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/09/09 21:12:58 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ char	*ft_itoa(int n)
 	int_str = ft_calloc(size + 1, sizeof(char));
 	if (!int_str)
 		return (NULL);
-	int_str[size--] = 0;
-	ft_populete_loop(int_str, n, size);
+	ft_populete_loop(int_str, n, --size);
 	if (flag == 1)
 		int_str[size] += flag;
 	return (int_str);
