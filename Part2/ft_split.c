@@ -6,14 +6,14 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 17:44:14 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/09/02 23:10:47 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/09/10 15:13:51 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static void		ft_fill_matrix(char const *s, char c, size_t num, char **res);
-static size_t	CountN(char const *s, char c);
+static size_t	CountS(char const *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
@@ -23,7 +23,8 @@ char	**ft_split(char const *s, char c)
 	res = NULL;
 	if (!s)
 		return (NULL);
-	num = CountN(s, c);
+	num = CountS(s, c);
+	// num = CountN(s, c);
 	res = (char **)malloc(sizeof(char *) * (num + 1));
 	if (!res)
 		return (NULL);
@@ -31,31 +32,24 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
-static size_t	CountN(char const *s, char c)
-{
-	size_t	count;
-	size_t	len;
 
-	if (!s[0])
-		return (0);
-	len = 0;
+static size_t	CountS(char const *s, char c)
+{
+	size_t		count;
+	char		*tmp;
+
+	tmp = (char *)s;
 	count = 0;
-	while (s[len] && s[len] == c)
-		len++;
-	while (s[len])
+	while(*tmp != 0)
 	{
-		if (s[len] == c)
-		{
+		while (*tmp == c && *tmp != 0)
+			++tmp;
+		while (*tmp != c && *tmp != 0)
+			++tmp;
+		if(*(tmp - 1) != c)
 			count++;
-			while (s[len] && s[len] == c)
-				len++;
-			continue ;
-		}
-		len++;
 	}
-	if (s[len - 1] != c)
-		count++;
-	return (count);
+	return(count);
 }
 
 static void	ft_fill_matrix(char const *s, char c, size_t num, char **res)

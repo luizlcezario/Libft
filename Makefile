@@ -6,7 +6,7 @@
 #    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/09/10 00:00:58 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/09/10 15:13:32 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,8 +100,8 @@ copy:
 
 rebonus: fclean copy bonus
 
-testeB: all rebonus
-	cd teste && make strtrim
+testeB: all 
+	cd teste && make split
 
 
 teste: rebonus
