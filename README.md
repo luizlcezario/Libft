@@ -31,11 +31,11 @@
 
 # :pushpin: Index
 
-* [What's this Repo?](#sparkles_What's-Libft-of-42?)
-* [List of Functions](#bookmark_tabs_List-of-Fucntions)
-* [Technologies](#computer_Technologies)
-* [How to Run](#construction_How-to-Run)
-* [Find a Bug? Or somenthing need to change?](#bug_Issues?)
+* [What's this Repo?](#sparkles-What's-Libft?)
+* [List of Functions](#bookmark_tabs-List-of-Fucntions)
+* [Technologies](#computer-Technologies)
+* [How to Run](#construction_worker-How-to-Run)
+* [Find a Bug? Or somenthing need to change?](#bug-Issues?)
 
 # :sparkles: What is Libft?
 
