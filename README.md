@@ -102,6 +102,11 @@ At 42 we're not allowed to use some standard libraries on our projects, so we ha
 - [x] [`ft_lstiter`](Bonus/ft_lstiter.c)	- applies a function to each element of a list.
 - [x] [`ft_lstmap`](Bonus/ft_lstmap.c)	- applies a function to each element of a list.
 
+
+## Functions of Others Projects
+
+- [x] [`get_next_line`](https://github.com/luizlcezario/get_next_line)	- Funtions thats read the next line of a File Descriptor.
+- [x] [`get_next_line_linked`](https://github.com/luizlcezario/get_next_line)	- Funtions thats read the next line of a File Descriptor using linked list.
 ---
 
 # :computer: Technologies

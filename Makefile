@@ -6,7 +6,7 @@
 #    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/09/10 15:13:32 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/09/23 14:36:37 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,19 +54,24 @@ SRCS =  ft_isalpha.c	\
 		
 
 
-SRCS_BONUS =ft_lstnew.c		\
-			ft_lstadd_front.c\
-			ft_lstsize.c	\
-			ft_lstlast.c	\
-			ft_lstadd_back.c\
-			ft_lstdelone.c	\
-			ft_lstclear.c	\
-			ft_lstiter.c	\
+SRCS_BONUS =ft_lstnew.c			\
+			ft_lstadd_front.c	\
+			ft_lstsize.c		\
+			ft_lstlast.c		\
+			ft_lstadd_back.c	\
+			ft_lstdelone.c		\
+			ft_lstclear.c		\
+			ft_lstiter.c		\
 			ft_lstmap.c
-		
+
+SRCS_OTHERS = get_next_line.c		\
+		 get_next_line_linked.c	
+
 OBJS = $(SRCS:.c=.o)
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+
+OBJS_OTHERS = $(SRCS_OTHERS:.c=.o)
 
 all: copy $(NAME) 
 	make clean
@@ -84,10 +89,17 @@ bonus: copy $(OBJS_BONUS)
 
 $(OBJS_BONUS): $(SRCS_BONUS)
 	$(CC) -I . -c $(CFLAGS) $(SRCS_BONUS)
-	
+
+others: copy $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS)
+	ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS)
+	make clean
+
+$(OBJS_OTHERS): $(SRCS_OTHERS)
+	$(CC) -I ./Others -c $(CFLAGS) $(SRCS_OTHERS)
+
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
-	rm -f $(SRCS) $(SRCS_BONUS)
+	rm -f $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS)
+	rm -f $(SRCS) $(SRCS_BONUS) $(SRCS_OTHERS)
 
 fclean: clean
 	rm -f $(NAME)
@@ -97,6 +109,8 @@ re: fclean copy all
 copy:
 	cp -f Part*/ft_*.c .
 	cp -f Bonus/ft_*.c .
+	cp -f Others/get_*.c .
+
 
 rebonus: fclean copy bonus
 
@@ -107,4 +121,4 @@ testeB: all
 teste: rebonus
 	cd teste2 && bash grademe.sh
 
-.PHONY: all clean fclean re copy bonus rebonus
+.PHONY: all clean fclean re copy bonus rebonus others
