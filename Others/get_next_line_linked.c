@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 17:16:44 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/09/23 14:18:04 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/09/23 16:55:38 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 static char	*concat_all(size_t end, int len, t_list **buffer_lists);
 static char	*read_text(t_list **buffer_lists, t_list *last, int len, int fd);
 static void	lts_to_str(t_list **buffer_lists, int str_len, char *res);
+
+static void	free_ptr(void **ptr)
+{
+	if (*ptr != NULL)
+	{
+		free(*ptr);
+		*ptr = NULL;
+	}
+}
 
 char	*get_next_line(int fd)
 {
@@ -48,7 +57,7 @@ char	*read_text(t_list **buffer_lists, t_list *last, int len, int fd)
 	bytes_read = read(fd, content, BUFFER_SIZE);
 	if (bytes_read <= 0)
 	{
-		free(content);
+		free_ptr((void **)&content);
 		return (concat_all(bytes_read, len, &buffer_lists[0]));
 	}
 	else
@@ -64,8 +73,13 @@ char	*concat_all(size_t end, int len, t_list **buffer_lists)
 	int		str_len;
 	char	*res;
 
-	if (len == 0)
+	res = NULL;
+	if (len <= 0)
+	{
+		free_ptr((void **)&buffer_lists[0]->content);
+		free_ptr((void **)buffer_lists);
 		return (NULL);
+	}
 	str_len = len - end;
 	res = (char *)malloc(str_len + 1 * sizeof(char));
 	if (res == NULL)
@@ -95,7 +109,7 @@ static void	lts_to_str(t_list **buffer_lists, int str_len, char *res)
 		if (*content != 0)
 			buffer_lists[0]->next = ft_lstnew(ft_strdup(content));
 		buffer_lists[0] = buffer_lists[0]->next;
-		free(tmp->content);
-		free(tmp);
+		free_ptr((void **)&tmp->content);
+		free_ptr((void **)&tmp);
 	}
 }
