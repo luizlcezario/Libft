@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 21:51:57 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/09/09 21:12:58 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/09/26 18:34:31 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ char	*ft_itoa(int n)
 		flag = 1;
 	}
 	size = ft_count_size(n);
-	int_str = ft_calloc(size + 1, sizeof(char));
+	int_str = malloc(size + 1 * sizeof(char));
+	int_str[size] = 0;
 	if (!int_str)
 		return (NULL);
 	ft_populete_loop(int_str, n, --size);

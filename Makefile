@@ -6,7 +6,7 @@
 #    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/09/23 14:36:37 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/09/29 10:27:14 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,7 @@ SRCS_BONUS =ft_lstnew.c			\
 			ft_lstiter.c		\
 			ft_lstmap.c
 
-SRCS_OTHERS = get_next_line.c		\
-		 get_next_line_linked.c	
+SRCS_OTHERS = get_next_line.c
 
 OBJS = $(SRCS:.c=.o)
 

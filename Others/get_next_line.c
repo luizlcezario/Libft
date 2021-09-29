@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prafal- <prafaegcost-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 17:16:44 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/09/22 21:52:59 by prafae-         ###   ########.fr       */
+/*   Updated: 2021/09/25 14:22:54 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*concat_all(int end, char **buffer_lists, t_bool fl);
-static char	*read_text(char **buffer_lists, char *buffer, int fd);
+static char	*concat_all(size_t end, int len, t_list **buffer_lists);
+static char	*read_text(t_list **buffer_lists, t_list *last, int len, int fd);
+static void	lts_to_str(t_list **buffer_lists, int str_len, char *res);
 
-static void	free_ptr(char **ptr)
+static void	free_ptr(void **ptr)
 {
 	if (*ptr != NULL)
 	{
@@ -24,63 +25,91 @@ static void	free_ptr(char **ptr)
 	}
 }
 
-char	*get_next_line_linked(int fd)
+char	*get_next_line(int fd)
 {
-	static char		*buffer_lists[MAX_FD + 1];
-	char			*buffer;
+	static t_list	*buffer_lists[MAX_FD + 1];
 	char			*resf;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > MAX_FD)
 		return (NULL);
-	buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (buffer == NULL)
-		return (NULL);
-	if (!buffer_lists[fd])
-		buffer_lists[fd] = ft_strdup("");
-	resf = read_text(&buffer_lists[fd], buffer, fd);
-	free_ptr(&buffer);
+	if (buffer_lists[fd] == NULL)
+		buffer_lists[fd] = ft_lstnew(ft_strdup(""));
+	resf = read_text(&buffer_lists[fd], buffer_lists[fd],
+			ft_strlen(buffer_lists[fd]->content), fd);
 	return (resf);
 }
 
-static char	*read_text(char **buffer_lists, char *buffer, int fd)
+char	*read_text(t_list **buffer_lists, t_list *last, int len, int fd)
 {
+	char	*content;
 	ssize_t	bytes_read;
-	char	*tmp;
-	char	*res;
+	t_list	*end;
 
-	res = ft_strchr(*buffer_lists, '\n');
-	if (res != NULL)
-		return (concat_all(res - *buffer_lists + 1, buffer_lists, TRUE));
-	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	content = ft_strchr(last->content, '\n');
+	if (content != NULL)
+	{
+		bytes_read = ft_strlen(content + 1);
+		return (concat_all(bytes_read, len, &buffer_lists[0]));
+	}
+	content = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (content == NULL)
+		return (NULL);
+	bytes_read = read(fd, content, BUFFER_SIZE);
 	if (bytes_read <= 0)
-		return (concat_all(bytes_read, buffer_lists, FALSE));
-	buffer[bytes_read] = 0;
-	tmp = ft_strjoin(*buffer_lists, buffer);
-	free_ptr(buffer_lists);
-	*buffer_lists = tmp;
-	return (read_text(buffer_lists, buffer, fd));
+	{
+		free_ptr((void **)&content);
+		return (concat_all(bytes_read, len, &buffer_lists[0]));
+	}
+	else
+		len += bytes_read;
+	content[bytes_read] = 0;
+	end = ft_lstnew(content);
+	last->next = end;
+	return (read_text(&buffer_lists[0], end, len, fd));
 }
 
-static char	*concat_all(int end, char **buffer_lists, t_bool fl)
+char	*concat_all(size_t end, int len, t_list **buffer_lists)
 {
+	int		str_len;
 	char	*res;
-	char	*tmp;
 
-	tmp = NULL;
-	if (end <= 0 && fl == FALSE)
+	res = NULL;
+	if (len <= 0)
 	{
-		if (**buffer_lists == '\0')
-		{
-			free_ptr(buffer_lists);
-			return (NULL);
-		}
-		res = *buffer_lists;
-		*buffer_lists = NULL;
-		return (res);
+		free_ptr((void **)&buffer_lists[0]->content);
+		free_ptr((void **)buffer_lists);
+		return (NULL);
 	}
-	tmp = ft_substr(*buffer_lists, end, BUFFER_SIZE);
-	res = *buffer_lists;
-	res[end] = 0;
-	*buffer_lists = tmp;
+	str_len = len - end;
+	res = (char *)malloc(str_len + 1 * sizeof(char));
+	if (res == NULL)
+		return (NULL);
+	res[str_len] = 0;
+	lts_to_str(buffer_lists, str_len, res);
 	return (res);
+}
+
+static void	lts_to_str(t_list **buffer_lists, int str_len, char *res)
+{
+	t_list	*tmp;
+	char	*content;
+	int		a;
+
+	a = 0;
+	while (a < str_len)
+	{
+		tmp = buffer_lists[0];
+		content = (char *)tmp->content;
+		while (*content != 0 && a < str_len)
+		{
+			res[a] = *content;
+			content++;
+			a++;
+		}
+		if (*content != 0)
+			buffer_lists[0]->next = ft_lstnew(ft_strdup(content));
+		buffer_lists[0] = buffer_lists[0]->next;
+		free_ptr((void **)&tmp->content);
+		free_ptr((void **)&tmp);
+	}
 }
