@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/09/08 16:43:38 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/10/18 19:04:25 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -343,7 +343,7 @@ t_list	*ft_lstnew(void *content);
  * @param lst list of address of t_lists.
  * @param new elemt to be add to the start of the LST.
  */
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new_element);
 
 /**
  * @brief find the length of the linked list appointed by LST
@@ -367,7 +367,7 @@ t_list	*ft_lstlast(t_list *lst);
  * @param lst appointed a linked list.
  * @param new the new element to be added.
  */
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new_element);
 
 /**
  * @brief aplies the function DEL to the LST and them free the LST.
@@ -407,5 +407,24 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * @return The new list. NULL if the allocation fails.
  */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/****************************** others ****************************************/
+/**
+ * @brief Function search if have one letter of ptr in str and return the firts letter
+ * 
+ * @param str to be searched
+ * @param ptr to search all
+ * @return char* the address of the first letters of ptr
+ */
+char	*ft_strfstr(const char *str, const char *ptr);
+/**
+ * @brief function transforma a number in base 10 to base that was passed in 	
+ * the variable BASE 
+ * 
+ * @param number number to be transfomrmad
+ * @param base the base
+ * @return char* a adress with the number transformed 
+ */
+char	*ft_itoa_base(size_t number, char *base);
 
 # endif

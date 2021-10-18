@@ -6,7 +6,7 @@
 #    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/09/29 10:27:14 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/10/18 19:39:50 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,18 @@ CC = gcc
 NAME = libft.a
 
 CFLAGS = -Wall -Wextra -Werror
+
+SRCS_PRINTF =	ft_printf.c				\
+				ft_initiate_function.c	\
+				ft_check_all.c			\
+				ft_formating.c			\
+				ft_check_errors.c		\
+				ft_gets_s_c_p.c			\
+				ft_gets_i_d.c			\
+				ft_gets_u_x.c			\
+				flags_formating.c		\
+				flags_formating2.c		\
+				flags_pointer.c			
 
 SRCS =  ft_isalpha.c	\
 		ft_isdigit.c	\
@@ -53,7 +65,6 @@ SRCS =  ft_isalpha.c	\
 		ft_putnbr_fd.c	
 		
 
-
 SRCS_BONUS =ft_lstnew.c			\
 			ft_lstadd_front.c	\
 			ft_lstsize.c		\
@@ -64,13 +75,17 @@ SRCS_BONUS =ft_lstnew.c			\
 			ft_lstiter.c		\
 			ft_lstmap.c
 
-SRCS_OTHERS = get_next_line.c
+SRCS_OTHERS =	get_next_line.c	\
+				ft_itoa_base.c	\
+				ft_strfstr.c	
 
 OBJS = $(SRCS:.c=.o)
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 OBJS_OTHERS = $(SRCS_OTHERS:.c=.o)
+
+OBJS_PRINTF = $(SRCS_PRINTF:.c=.o)
 
 all: copy $(NAME) 
 	make clean
@@ -89,26 +104,26 @@ bonus: copy $(OBJS_BONUS)
 $(OBJS_BONUS): $(SRCS_BONUS)
 	$(CC) -I . -c $(CFLAGS) $(SRCS_BONUS)
 
-others: copy $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS)
-	ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS)
+others: copy $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS) $(OBJS_PRINTF)
+	ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS) $(OBJS_PRINTF)
 	make clean
 
 $(OBJS_OTHERS): $(SRCS_OTHERS)
 	$(CC) -I ./Others -c $(CFLAGS) $(SRCS_OTHERS)
 
+$(OBJS_PRINTF):$(SRCS_PRINTF)
+	$(CC) -I ./Others/printf -c $(CFLAGS) $(SRCS_PRINTF)
+
+
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS)
-	rm -f $(SRCS) $(SRCS_BONUS) $(SRCS_OTHERS)
-
-fclean: clean
-	rm -f $(NAME)
-
-re: fclean copy all
+	rm -f $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS) $(OBJS_PRINTF)
+	rm -f $(SRCS) $(SRCS_BONUS) $(SRCS_OTHERS) $(SRCS_PRINTF)
 
 copy:
 	cp -f Part*/ft_*.c .
 	cp -f Bonus/ft_*.c .
-	cp -f Others/get_*.c .
+	cp -f Others/*.c .
+	cp -f Others/printf/*.c .
 
 
 rebonus: fclean copy bonus

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_strfstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 15:57:27 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/09/29 11:53:39 by llima-ce         ###   ########.fr       */
+/*   Created: 2021/10/06 22:02:08 by llima-ce          #+#    #+#             */
+/*   Updated: 2021/10/18 19:05:17 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new_element)
-{
-	t_list	*tmp;
 
-	if (*lst == NULL)
-		*lst = new_element;
-	else
-	{
-		tmp = new_element;
-		tmp->next = *lst;
-		*lst = tmp;
-	}
+char	*ft_strfstr(const char *str, const char *ptr)
+{
+	if (str == NULL || ptr == NULL)
+		return (NULL);
+	while (*str && !ft_strchr(ptr, *str))
+		str++;
+	if(*str == 0)
+		return(NULL);
+	return ((char *)str);
 }
