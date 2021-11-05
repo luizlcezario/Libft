@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags_formating.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: luizz <luizz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 09:19:14 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/10/18 19:10:37 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:40:01 by luizz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	minus_flag(t_format *buffer, int *len, char *tmp)
 	else
 	{
 		ft_strlcpy(tmp + buffer->cf_now->min_width - *len,
-			buffer->formated_src , *len + 1);
+			buffer->formated_src, *len + 1);
 	}
 }
 
@@ -28,8 +28,8 @@ void	zero_flag(t_format *buffer, char *tmp, t_bool flag, int *len)
 	char	*flag_tmp;
 
 	if (buffer->cf_now->flag_0 == TRUE
-	&& buffer->cf_now->flag_align == FALSE
-	&& buffer->cf_now->flag_pointer == 0)
+		&& buffer->cf_now->flag_align == FALSE
+		&& (buffer->cf_now->flag_pointer == 0))
 	{
 		ft_memset(tmp, '0', buffer->cf_now->min_width);
 		if (flag == TRUE)
@@ -54,7 +54,7 @@ void	zero_flag(t_format *buffer, char *tmp, t_bool flag, int *len)
 
 void	min_width_flag(t_format *buffer, int *len, t_bool flag)
 {
-	char *tmp;
+	char	*tmp;
 
 	if (buffer->cf_now->min_width > *len)
 	{

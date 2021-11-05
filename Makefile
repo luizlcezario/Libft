@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: luizz <luizz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/10/18 19:39:50 by llima-ce         ###   ########.fr        #
+#    Updated: 2021/11/05 17:05:36 by luizz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,16 +18,18 @@ NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS_PRINTF =	ft_printf.c				\
-				ft_initiate_function.c	\
+				ft_vformatf.c			\
+				ft_formatf.c			\
+				struct_functions.c		\
 				ft_check_all.c			\
 				ft_formating.c			\
-				ft_check_errors.c		\
 				ft_gets_s_c_p.c			\
 				ft_gets_i_d.c			\
 				ft_gets_u_x.c			\
 				flags_formating.c		\
 				flags_formating2.c		\
-				flags_pointer.c			
+				ft_check_errors.c		\
+				flags_pointer.c		
 
 SRCS =  ft_isalpha.c	\
 		ft_isdigit.c	\

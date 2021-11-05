@@ -3,61 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: luizz <luizz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 10:51:33 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/10/15 00:21:39 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:56:27 by luizz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static int	put_formated(t_format *buffer, char *formated)
+{
+	int		a;
+
+	a = 0;
+	while (a < buffer->len)
+	{
+		write(1, &formated[a], 1);
+		a++;
+	}
+	free(formated);
+	return (ft_end_struct(buffer));
+}
+
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
-	int		len;
+	t_format	*buffer;
+	va_list		args;
+	char		*formated;
+	int			len;
 
-	len = 0;
 	if (format == NULL)
-		return (len);
+		return (0);
 	va_start(args, format);
-	len = ft_vfprintf(format, args);
+	buffer = ft_start_struct(args);
+	formated = ft_vformatf(format, buffer);
+	len = put_formated(buffer, formated);
 	va_end(args);
 	return (len);
-}
-
-void	put_formated(t_format *buffer)
-{
-	char	*tmp;
-
-	tmp = buffer->formated_src;
-	if (*tmp != 0)
-		while (*tmp)
-			write(1, tmp++, 1);
-	else if (buffer->cf_now->conversion == 'c')
-		write(1, "\0", 1);
-}
-
-int	ft_vfprintf(const char *format, va_list args)
-{
-	t_format	*buffer;
-
-	buffer = ft_start_struct(args);
-	while (*format != 0)
-	{
-		if (*format == '%')
-		{
-			format += ft_check_all((char *)format + 1, buffer);
-			format++;
-			put_formated(buffer);
-			ft_reset_struct(buffer);
-		}
-		else
-		{
-			buffer->len = buffer->len + 1;
-			write(1, format, 1);
-			format++;
-		}
-	}
-	return (ft_end_struct(buffer));
 }

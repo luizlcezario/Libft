@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: luizz <luizz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/10/18 19:04:25 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/11/05 17:02:25 by luizz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -410,7 +410,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /****************************** others ****************************************/
 /**
- * @brief Function search if have one letter of ptr in str and return the firts letter
+ * @brief Function search if have one letter of ptr in str and return the firts 
+ * letter
  * 
  * @param str to be searched
  * @param ptr to search all
@@ -427,4 +428,4 @@ char	*ft_strfstr(const char *str, const char *ptr);
  */
 char	*ft_itoa_base(size_t number, char *base);
 
-# endif
+#endif

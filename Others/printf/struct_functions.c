@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initiate_function.c                             :+:      :+:    :+:   */
+/*   struct_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: luizz <luizz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 18:19:58 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/10/08 13:29:11 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/11/04 15:23:16 by luizz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_format	*ft_start_struct(va_list args)
 	new = malloc(1 * sizeof(t_format));
 	cf_now = malloc(1 * sizeof(t_convert_flags));
 	new->len = 0;
+	new->len_all = 0;
 	new ->formated_src = NULL;
 	va_copy(new->args_c, args);
 	cf_now->conversion = '\0';
@@ -57,5 +58,5 @@ int	ft_end_struct(t_format *buffer)
 	free(buffer->cf_now);
 	buffer->cf_now = NULL;
 	free(buffer);
-	return(len);
+	return (len);
 }

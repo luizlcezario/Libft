@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strfstr.c                                       :+:      :+:    :+:   */
+/*   ft_formatf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizz <luizz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 22:02:08 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/11/05 17:03:35 by luizz            ###   ########.fr       */
+/*   Created: 2021/11/05 15:58:00 by luizz             #+#    #+#             */
+/*   Updated: 2021/11/05 16:04:18 by luizz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strfstr(const char *str, const char *ptr)
+char	*ft_formatf(const char *format, ...)
 {
-	if (str == NULL || ptr == NULL)
-		return (NULL);
-	while (*str && !ft_strchr(ptr, *str))
-		str++;
-	if (*str == 0)
-		return (NULL);
-	return ((char *)str);
+	t_format	*buffer;
+	va_list		args;
+	char		*formated;
+
+	if (format == NULL)
+		return (0);
+	va_start(args, format);
+	buffer = ft_start_struct(args);
+	formated = ft_vformatf(format, buffer);
+	ft_end_struct(buffer);
+	va_end(args);
+	return (formated);
 }
