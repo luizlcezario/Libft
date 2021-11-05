@@ -105,10 +105,11 @@ At 42 we're not allowed to use some standard libraries on our projects, so we ha
 
 ## Functions of Others Projects
 
-- [x] [`get_next_line`](https://github.com/luizlcezario/get_next_line)	- Funtions thats read the next line of a File Descriptor.
-- [x] [`ft_printf`](https://github.com/Face-Tattoo/ft_printf)	- Function is a recreation of the original version of printf with some flags.
 - [x] [`ft_strfstr`](Others/ft_strfstr.c)	- Function finds a first ocurrency of some letters from the second frase.
 - [x] [`ft_itoa_base`](Others/ft_itoa_base.c)	- Function transform a number in base 10 to base thats was passed and then return in string version.
+- [x] [`get_next_line`](https://github.com/luizlcezario/get_next_line)	- Funtions thats read the next line of a File Descriptor.
+- [x] [`ft_printf`](https://github.com/Face-Tattoo/ft_printf)	- Function is a recreation of the original version of printf with some flags.
+- [x] [`ft_formatf`](https://github.com/luizlcezario/ft_printf)	- Function returns the formated string like a print of printf.
 
 ---
 
