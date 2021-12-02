@@ -133,6 +133,9 @@ copy:
 	cp -f Others/*.c .
 	cp -f Others/printf/*.c .
 
+re: fclean copy all
+
+reother: fclean copy others
 
 rebonus: fclean copy bonus
 
@@ -143,4 +146,4 @@ testeB: all
 teste: rebonus
 	cd teste2 && bash grademe.sh
 
-.PHONY: all clean fclean re copy bonus rebonus others
+.PHONY: all clean fclean re copy bonus rebonus others reothers
