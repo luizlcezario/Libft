@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: llima-ce <luizlcezario@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/27 13:53:47 by llima-ce          #+#    #+#              #
-#    Updated: 2021/11/12 16:45:15 by llima-ce         ###   ########.fr        #
+#    Updated: 2022/03/28 17:19:04 by llima-ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,9 @@ SRCS_BONUS =ft_lstnew.c			\
 
 SRCS_OTHERS =	get_next_line.c	\
 				ft_itoa_base.c	\
-				ft_strfstr.c	
+				ft_strfstr.c	\
+				ft_new_atoi.c
+
 
 
 
@@ -83,7 +85,6 @@ SRCS_PRINTF =	ft_printf.c				\
 				ft_check_errors.c		\
 				flags_pointer.c		
 
-
 OBJS = $(SRCS:.c=.o)
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
@@ -92,58 +93,39 @@ OBJS_OTHERS = $(SRCS_OTHERS:.c=.o)
 
 OBJS_PRINTF = $(SRCS_PRINTF:.c=.o)
 
-all: copy $(NAME) 
-	make clean
+all: $(NAME) 
 
 $(NAME): $(OBJS) 
 	ar -rcs $(NAME) $(OBJS)
 
-$(OBJS): $(SRCS)
-	make copy
-	$(CC) -I . -c $(CFLAGS) $(SRCS)
+$(OBJS): $(addprefix src/, $(SRCS))
+	$(CC) -I . -c $(CFLAGS) $(addprefix  src/, $(SRCS))
 
-bonus: copy $(OBJS_BONUS)
+bonus: $(OBJS_BONUS)
 	ar rcs $(NAME) $(OBJS_BONUS)
-	make clean
 
-$(OBJS_BONUS): $(SRCS_BONUS)
-	$(CC) -I . -c $(CFLAGS) $(SRCS_BONUS)
+$(OBJS_BONUS): $(addprefix bonus/, $(SRCS_BONUS))
+	$(CC) -I . -c $(CFLAGS) $(addprefix bonus/, $(SRCS_BONUS))
 
-others: copy $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS) $(OBJS_PRINTF)
+others: $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS) $(OBJS_PRINTF)
 	ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS) $(OBJS_PRINTF)
-	make clean
 
-$(OBJS_OTHERS): $(SRCS_OTHERS)
-	$(CC) -I ./Others -c $(CFLAGS) $(SRCS_OTHERS)
+$(OBJS_OTHERS): $(addprefix others/, $(SRCS_OTHERS))
+	$(CC) -I ./others -I . -c $(CFLAGS) $(addprefix others/, $(SRCS_OTHERS))
 
-$(OBJS_PRINTF):$(SRCS_PRINTF)
-	$(CC) -I ./Others/printf -c $(CFLAGS) $(SRCS_PRINTF)
-
+$(OBJS_PRINTF): $(addprefix others/printf/, $(SRCS_PRINTF))
+	$(CC) -I ./others/printf -I . -c $(CFLAGS) $(addprefix others/printf/, $(SRCS_PRINTF))
 
 clean:
 	rm -f $(OBJS) $(OBJS_BONUS) $(OBJS_OTHERS) $(OBJS_PRINTF)
-	rm -f $(SRCS) $(SRCS_BONUS) $(SRCS_OTHERS) $(SRCS_PRINTF)
 
 fclean: clean
 	rm -f $(NAME)
 
-copy:
-	cp -f Part*/ft_*.c .
-	cp -f Bonus/ft_*.c .
-	cp -f Others/*.c .
-	cp -f Others/printf/*.c .
+re: fclean all
 
-re: fclean copy all
+rebonus: fclean bonus
 
-reother: fclean copy others
+reother: fclean others
 
-rebonus: fclean copy bonus
-
-testeB: all 
-	cd teste && make split
-
-
-teste: rebonus
-	cd teste2 && bash grademe.sh
-
-.PHONY: all clean fclean re copy bonus rebonus others reothers
+.PHONY: all clean fclean re  bonus rebonus others reothers

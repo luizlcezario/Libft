@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vformatf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luizz <luizz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: llima-ce <luizlcezario@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:55:18 by luizz             #+#    #+#             */
-/*   Updated: 2021/11/05 15:58:18 by luizz            ###   ########.fr       */
+/*   Updated: 2022/03/16 15:46:30 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 static char	*ft_merge(char *all, t_format *buffer, int *pt_start, int pt_end)
 {
-	char	*new;
+	char	*new1;
 	int		len_all;
 
 	if (all == NULL || *pt_start < 0)
 		return (all);
 	len_all = buffer->len_all - pt_end + buffer->len + 1;
-	new = malloc(len_all * sizeof(char));
-	new[len_all - 1] = 0;
-	if (new == NULL)
+	new1 = malloc(len_all * sizeof(char));
+	new1[len_all - 1] = 0;
+	if (new1 == NULL)
 		return (all);
-	ft_memcpy(new, all, *pt_start);
-	ft_memcpy(new + *pt_start, buffer->formated_src, buffer->len);
-	ft_strlcpy(new + *pt_start + buffer->len, all + *pt_start + pt_end,
+	ft_memcpy(new1, all, *pt_start);
+	ft_memcpy(new1 + *pt_start, buffer->formated_src, buffer->len);
+	ft_strlcpy(new1 + *pt_start + buffer->len, all + *pt_start + pt_end,
 		len_all + 1);
 	free(all);
 	all = NULL;
 	*pt_start += buffer->len;
 	buffer->len_all = len_all - 1;
-	return (new);
+	return (new1);
 }
 
 char	*ft_vformatf(const char *format, t_format *buffer)

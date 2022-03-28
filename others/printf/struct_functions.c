@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luizz <luizz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: llima-ce <luizlcezario@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 18:19:58 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/11/04 15:23:16 by luizz            ###   ########.fr       */
+/*   Updated: 2022/03/16 15:46:37 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 t_format	*ft_start_struct(va_list args)
 {
-	t_format		*new;
+	t_format		*new1;
 	t_convert_flags	*cf_now;
 
-	new = malloc(1 * sizeof(t_format));
+	new1 = malloc(1 * sizeof(t_format));
 	cf_now = malloc(1 * sizeof(t_convert_flags));
-	new->len = 0;
-	new->len_all = 0;
-	new ->formated_src = NULL;
-	va_copy(new->args_c, args);
+	new1->len = 0;
+	new1->len_all = 0;
+	new1 ->formated_src = NULL;
+	va_copy(new1->args_c, args);
 	cf_now->conversion = '\0';
 	cf_now->flag_0 = FALSE;
 	cf_now->flag_align = FALSE;
@@ -31,8 +31,8 @@ t_format	*ft_start_struct(va_list args)
 	cf_now->flag_space = FALSE;
 	cf_now->flag_pointer = 0;
 	cf_now->min_width = 0;
-	new->cf_now = cf_now;
-	return (new);
+	new1->cf_now = cf_now;
+	return (new1);
 }
 
 void	ft_reset_struct(t_format *buffer)
